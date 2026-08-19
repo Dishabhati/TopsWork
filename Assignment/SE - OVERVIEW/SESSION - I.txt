@@ -1,12 +1,42 @@
-<li>Name 5 IT job roles and write one line about what each role does.</li>
-FDFGD
-<li>List 3 product companies and 3 service companies with one example of work each does.</li>
-Write the full forms and one-line use of: GitHub, Slack, Jira, IDE, API.</li>
+1.Name 5 IT job roles and write one line about what each role does.
+Ans-
+Software Developers - They design, writes and test,computer programs and applications.
+Database Administrator– organize and maintain databases to ensure data is stored safely.
+Web Developer– Builds and maintains websites.
+Data Analyst– Studies data to find useful information and patterns.
+Network Administrator– Manages and maintains computer networks.
 
-SDFSDFSDF
 
-DSFSDF
+2.List 3 product companies and 3 service companies with one example of work each does.
+Ans-
+Product:-
+Infibeam Avenues-Develops digital payment and e-commerce platforms.
+Mindarray Systems	Develops Motadata, a platform for network monitoring and IT service management.
+Saleshandy	Develops sales and email outreach software for businesses.
 
-SDFSDF
-<li>Name any 5 programming languages and mention one popular use case for each.</li>
-<li>What is the difference between a developer and a tester? Answer in 2 lines.</li>
+Service:-
+Vrinsoft Technology Pvt. Ltd.	Provides web and mobile app development services for clients.
+Tridhya Tech Limited	Provides custom software and web development services.
+Agile Infoways LLC	Provides web and mobile application development services.
+
+
+3.Write the full forms and one-line use of: GitHub, Slack, Jira, IDE, API.
+Ans-
+-GitHub-code hosting platform   - Use to store and share code online.
+-Slack-Searchable log of all Conversation and Knowledge    -Use for team communication and collaboration.
+-Jira- Project management tool    -Used to track tasks,bugs, and projects.
+-IDE- Integrated development environment    -Used to write, run and debug code.
+-API- Application Programming Interface           -Use to connect different software.
+
+4.Name any 5 programming languages and mention one popular use case for each.
+Ans-
+-Python- use for ai and machine learning.
+-C - System programming
+-Javascript- web development
+-C++ - for games making
+-Java- For application making
+ 
+5.What is the difference between a developer and a tester? Answer in 2 lines.
+Ans-
+-Developer- creates software or applications.
+-Tester- Checks the software bugs and see that it works correctly or not
