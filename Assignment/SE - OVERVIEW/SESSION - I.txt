@@ -1,0 +1,12 @@
+<li>Name 5 IT job roles and write one line about what each role does.</li>
+FDFGD
+<li>List 3 product companies and 3 service companies with one example of work each does.</li>
+Write the full forms and one-line use of: GitHub, Slack, Jira, IDE, API.</li>
+
+SDFSDFSDF
+
+DSFSDF
+
+SDFSDF
+<li>Name any 5 programming languages and mention one popular use case for each.</li>
+<li>What is the difference between a developer and a tester? Answer in 2 lines.</li>
