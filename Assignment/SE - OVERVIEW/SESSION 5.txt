@@ -15,6 +15,13 @@ Ans-
 
 3.Create a new GitHub repository, push any small text file from your local system, and share the repo link.
 Ans-
-  
+  https://github.com/Dishabhati/small-repo-file-for-link
+
+
 4.What is the difference between a Fork and a Pull Request? Answer in 2 lines.
+Ans-
+   Fork creates your own copy of someone else's GitHub repository.
+   Pull Request asks the original repository owner to review and merge your changes.
+
+
 5.Create a new branch named feature-test, make one commit on it, and merge it back to the main branch. Write the commands you used.
