@@ -1,0 +1,38 @@
+1.List all 6 phases of SDLC in order with one line about each.
+Ans-
+-Planning – it decide's the project goals and requirements.
+-Analysis – is studies what the system needs.
+-Design – it creates the system design and structure.
+-Development – it writes the code and build the software.
+-Testing – it finds and fix errors in the software.
+-Maintenance – its update and improve the software after release.
+
+
+2.Write 3 differences between Agile and Waterfall models.
+Ans-
+i)Agile-its work is done in small steps.
+  Waterfall-its work is done step by step.
+ii)Agile-Changes can be made easily.
+   Waterfall-Changes are difficult after a phase is completed.
+iii)Agile-Testing happens throughout the project.
+    Waterfall-Testing usually happens after development.
+
+
+3.Name the 3 main Scrum roles and write one line about the responsibility of each.
+Ans-Product Owner – Manages requirements and decides what to build.
+   -Scrum Master – Helps the team follow Scrum and removes problems.
+   -Development Team – Builds and delivers the product.
+
+
+4.What is a Sprint in Scrum? Mention its typical duration.
+Ans-
+   A Sprint is a short period in which the team completes planned work.
+   Typical duration: 1–4 weeks, usually 2 weeks.
+
+
+5.What do these Jira board columns mean: To Do, In Progress, Done, Backlog?
+Ans-
+   Backlog – List of tasks waiting to be worked on.
+   To Do – Tasks ready to start.
+   In Progress – Tasks currently being worked on.
+   Done – Completed tasks.
