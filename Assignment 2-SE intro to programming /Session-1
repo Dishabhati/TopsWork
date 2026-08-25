@@ -1,7 +1,37 @@
-Write a short paragraph in your own words defining what a 'program' is and give one real-life example from any app you use daily (like Instagram, Zomato, or Paytm).
-2.
-List three popular programming languages you have heard of, and for each, mention whether it is usually compiled, interpreted, or can be both.<br><br><em><strong>Hint:</strong> Think of languages like Java, Python, and JavaScript.</em>
-3.
-Draw a flowchart (on paper or using any online tool) for the process of booking a movie ticket on BookMyShow, starting from opening the app to receiving the booking confirmation.
+1.Write a short paragraph in your own words defining what a 'program' is and give one real-life example from any app you use daily (like Instagram, Zomato, or Paytm).
+Ans.
+    Program is a set of instructions written in a programming language that tells a computer or app what to do.
+    Ex-In Paytm, a program processes the user's payment details and transfers money from one account to another when we make a payment.
+
+
+2.List three popular programming languages you have heard of, and for each, mention whether it is usually compiled, interpreted, or can be both.<br><br><em><strong>Hint:</strong> Think of languages like Java, Python, and JavaScript.</em>
+Ans.
+   Java-Compiled
+   Python-Interpreted
+   JavaScript-Interpreted
+
+
+3.Draw a flowchart (on paper or using any online tool) for the process of booking a movie ticket on BookMyShow, starting from opening the app to receiving the booking confirmation.
+Ans.
+    
+
+
 4.
 Write down the steps (as an algorithm, using simple numbered instructions) for ordering food on Swiggy — from opening the app to completing payment.
+Ans.
+   -Start
+   -Open the Swiggy app.
+   -Enter or select delivery address.
+   -Search for the restaurant or food item.
+   -Select a restaurant from the available options.
+   -Choose the food items you want to order.
+   -Add to the cart.
+   -Open the cart and check the order details.
+   -Confirm the delivery address and order amount.
+   -Click Proceed to Pay.
+   -Select a suitable payment method (such as UPI, card, or cash on delivery).
+   -Enter the payment details.
+   -Complete payment.
+   -If the payment is successful, the order is confirmed.
+   -Receive the order confirmation and wait for the food to be delivered.
+   -End
