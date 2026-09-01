@@ -1,7 +1,81 @@
-Declare variables for a Flipkart product: productName (as a string), price (float), and rating (double). Assign sample values and print each variable with its data type.
-2.
-Create a constant variable to store the GST rate (for example, 18%) and use it to calculate the final price of a Zomato order with a given base price.<br><br><em><strong>Constraint:</strong> The GST rate must not be changeable after its initial assignment.</em>
-3.
-Write a program that stores your favorite Spotify playlist's name (string), total number of songs (int), and average song duration in minutes (float). Print all values in a single formatted sentence.
+1.Declare variables for a Flipkart product: productName (as a string), price (float), and rating (double). Assign sample values and print each variable with its data type.
+Ans.
+#include <stdio.h>
+void flipkart()
+{
+    char productName[] = "Samsung Galaxy S24";
+    float price = 74999.50;
+    double rating = 4.5;
+
+    printf("Product Name: %s\n", productName);
+    printf("Price: %f\n", price);
+    printf("Rating: %f\n", rating);
+}
+int main()
+{
+    flipkart();
+}
+
+
+2.Create a constant variable to store the GST rate (for example, 18%) and use it to calculate the final price of a Zomato order with a given base price.<br><br><em><strong>Constraint:</strong> The GST rate must not be changeable after its initial assignment.</em>
+Ans.
+#include <stdio.h>
+void zomatoOrder()
+{
+    float GST_RATE=0.18;
+    float basePrice=500.00;
+    float gstAmount;
+    float finalPrice;
+
+    gstAmount=basePrice*GST_RATE;
+    finalPrice=basePrice+gstAmount;
+
+    printf("Base Price: %f\n", basePrice);
+    printf("GST Amount: %f\n", gstAmount);
+    printf("Final Price: %f\n", finalPrice);
+}
+int main()
+{
+    zomatoOrder();
+}
+
+
+3.Write a program that stores your favorite Spotify playlist's name (string), total number of songs (int), and average song duration in minutes (float). Print all values in a single formatted sentence.
+Ans.
+#include <stdio.h>
+void spotifyPlaylist()
+{
+    char playlistName[] = "My Favorite Songs";
+    int totalSongs=50;
+    float averageDuration=4.25;
+
+    printf("My Spotify playlist \n%s has %d songs with an average duration of %f minutes.\n", playlistName, totalSongs, averageDuration);
+}
+int main()
+{
+    spotifyPlaylist();
+}
+
+
 4.
 Identify and correct the invalid variable names from this list: 1stPlayer, player_age, $score, total-marks, userName.<br><br><em><strong>Hint:</strong> Apply standard variable naming rules for your programming language.</em>
+Ans.
+#include <stdio.h>
+void variableNames()
+{
+    char firstPlayer[]= "Player 1";
+    int player_age=25;
+    int score=90;
+    int total_marks=100;
+    char userName[]="Abc";
+
+    printf("firstPlayer = %s\n", firstPlayer);
+    printf("player_age = %d\n", player_age);
+    printf("score = %d\n", score);
+    printf("total_marks = %d\n", total_marks);
+    printf("userName = %s\n", userName);
+}
+int main()
+{
+    variableNames();
+}
