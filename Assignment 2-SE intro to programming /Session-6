@@ -1,0 +1,100 @@
+1.Write a program that prints the numbers from 10 down to 1 using a for loop, similar to a countdown timer.
+Ans.
+#include <stdio.h>
+int main()
+{
+	int i;
+	for(i=10;i>=1;i--)
+	{
+		printf("%d\n",i);
+    }
+}
+
+
+2.Create a menu-driven console app that lets the user: 1) View your favorite 3 IPL teams, 2) Add a new team, 3) Exit. Use a while loop to keep showing the menu until the user chooses Exit.<br><br><em><strong>Hint:</strong> Use input() (or Scanner in Java) to get the user's choice each time.</em>
+Ans.
+#include <stdio.h>
+int main() {
+    int choice;
+
+    while(1) {
+        printf("\n1. View IPL Teams");
+        printf("\n2. Add New Team");
+        printf("\n3. Exit");
+
+        printf("\nEnter choice: ");
+        scanf("%d",&choice);
+
+        if(choice==1) {
+            printf("1. Mumbai Indians");
+            printf("\n2. Chennai Super Kings");
+            printf("\n3. Rajasthan Royals\n");
+        }
+        else if(choice==2) {
+            printf("new team added!\n");
+        }
+        else if(choice==3) {
+            printf("exit");
+            break;
+        }
+        else {
+            printf("invalid choice!\n");
+        }
+    }
+}
+
+
+3.Build a 'Guess the Song' game like Spotify — the program randomly picks a song name from a list and asks the user to guess it. Use a do-while loop so the user can keep guessing until they get it right.<br><br><em><strong>Constraint:</strong> Use at least 3 song names of your choice.</em>
+Ans.
+#include <stdio.h>
+int main() {
+    int song,guess;
+    song = 2;
+
+    printf("Guess the Song!\n");
+    printf("1. Kesariya\n");
+    printf("2. Apna Bana Le\n");
+    printf("3. Tum Hi Ho\n");
+
+    do {
+        printf("enter your guess:");
+        scanf("%d",&guess);
+
+        if(guess==song)
+            printf("Correct! You guessed the song!");
+        else
+            printf("Wrong guess! Try again.\n");
+
+    } while(guess!=song);
+}
+
+
+4.Explain with your own example the difference between entry-controlled and exit-controlled loops by writing a short code snippet for each (for/while vs do-while) and describing what happens if the loop condition is false at the start.
+Ans.
+-->Entry-controlled
+
+#include <stdio.h>
+int main() {
+    int i = 10;
+
+    while(i < 5) {
+        printf("%d", i);
+        i++;
+    }
+}
+The condition i < 5 is false at the beginning, so the loop runs 0 times.
+
+
+-->Exit-controlled loop
+#include <stdio.h>
+int main() {
+    int i = 10;
+
+    do {
+        printf("%d", i);
+        i++;
+    } while(i < 5);
+
+    return 0;
+}
+The condition is false, but the do-while loop runs at least once.
