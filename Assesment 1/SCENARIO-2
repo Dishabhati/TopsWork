@@ -1,1 +1,9 @@
+SCENARIO-You are collaborating on a college project website with three teammates. Just before a
+client demo, one teammate pushed incomplete code directly to the main branch,
+breaking the layout for everyone else on the team.
 
+Question: Describe the Git workflow your team should adopt to prevent this from happening
+again. Name at least two Git commands your team should use as part of this workflow and
+explain the role of each command.
+
+Answer-
