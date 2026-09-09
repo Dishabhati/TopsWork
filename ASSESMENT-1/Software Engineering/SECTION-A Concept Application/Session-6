@@ -1,0 +1,10 @@
+SCENARIO-You are debugging a C program that uses a pointer to traverse a string entered by the
+user. The program works correctly when the user types a name, but crashes
+immediately when the input field is left empty (the user just presses Enter).
+
+Question: Explain why the program crashes on an empty string input and describe the check
+your pointer-based solution must perform before dereferencing the pointer. How does traversing
+a string using a pointer differ from traversing it using array index notation, and which approach
+makes the empty-input bug easier to catch.
+
+Answer-
