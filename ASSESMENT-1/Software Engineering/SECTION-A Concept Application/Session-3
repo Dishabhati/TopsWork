@@ -1,0 +1,11 @@
+SCENARIO-You are building an online internship application form for a college placement portal.
+The form must collect: applicant name, email address, phone number, preferred
+domain (one of: Web, Data, Mobile, AI), and a resume file upload. The institution requires
+that no field be left empty and that the email field only accepts valid email formats —
+without writing any JavaScript.
+
+Question: List the appropriate HTML input types you would use for each of the five fields. Explain
+how you would use HTML5 built-in validation attributes to enforce the two constraints mentioned,
+and why these attributes alone are not sufficient for production-level validation.
+
+Answer-
