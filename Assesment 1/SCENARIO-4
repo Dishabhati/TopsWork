@@ -1,9 +1,0 @@
-SCENARIO-You are designing a news portal that displays articles in a 3-column grid on desktop
-screens and in a single-column layout on mobile devices. Your team wants to use
-Bootstrap's grid system to achieve this without writing any custom media query CSS.
-
-Question: Explain how Bootstrap's grid class system works to produce this responsive layout.
-Write the Bootstrap class combination you would apply to the article column div, and explain
-what each class in the combination controls
-
-Answer-
