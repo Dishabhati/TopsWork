@@ -1,0 +1,107 @@
+1.Declare a structure named Playlist to store details of a song: title (string), artist (string), and duration in seconds (integer). Initialize one Playlist variable with your favorite song's details and print each field.
+Ans.
+#include <iostream>
+using namespace std;
+struct Playlist
+{
+    string title;
+    string artist;
+    int duration;
+};
+
+int main()
+{
+    Playlist song={"Vaste","dhvani bhanushali",262};
+
+    cout<<"Title:"<<song.title<<endl;
+    cout<<"Artist:"<<song.artist<<endl;
+    cout<<"Duration:"<<song.duration<<" seconds";
+}
+
+
+2.Create a structure called FoodItem to store Zomato-style menu data: itemName (string), price (float), and rating (float). Initialize an array of 3 FoodItem variables with real menu items and display their details using a loop.
+Ans.
+#include <iostream>
+using namespace std;
+struct FoodItem
+{
+    string itemName;
+    float price;
+    float rating;
+};
+
+int main()
+{
+    FoodItem food[3]=
+    {
+        {"Pizza",250,4.5},
+        {"Burger",150,4.2},
+        {"Momos",100,4.7}
+    };
+
+    for(int i=0;i<3;i++)
+    {
+        cout<<"Item:"<<food[i].itemName<<endl;
+        cout<<"Price:"<<food[i].price<<endl;
+        cout<<"Rating:"<<food[i].rating<<endl;
+        cout<<endl;
+    }
+}
+
+
+3.Define a nested structure called MovieShow for a BookMyShow-style app: Movie (string), Screen (integer), and a nested structure Time with hours and minutes (integers). Create and initialize a MovieShow variable for any movie and print its details in the format 'Movie: X, Screen: Y, Time: HH:MM'.
+Ans.
+#include <iostream>
+using namespace std;
+struct MovieShow
+{
+    string Movie;
+    int Screen;
+    struct Time
+    {
+        int hours;
+        int minutes;
+    } 
+	time;
+};
+
+int main()
+{
+    MovieShow show={"Dangal",3,{7,30}};
+
+    cout<<"Movie:"<<show.Movie<<", ";
+    cout<<"Screen:"<<show.Screen<<", ";
+    cout<<"Time:"<<show.time.hours <<":"<<show.time.minutes;
+}
+
+
+4.Build a structure called InstaProfile with fields: username (string), followers (integer), and a nested structure Bio with fields: description (string) and age (integer). Initialize an InstaProfile variable with your own details and display all fields.
+Ans.
+#include <iostream>
+using namespace std;
+struct InstaProfile
+{
+    string username;
+    int followers;
+
+    struct Bio
+    {
+        string description;
+        int age;
+    } bio;
+};
+
+int main()
+{
+    InstaProfile profile= 
+	{
+        "disha",
+        300,
+        {"Student",20}
+    };
+
+    cout<<"Username:"<<profile.username<<endl;
+    cout<<"Followers:"<<profile.followers<<endl;
+    cout<<"Description:"<<profile.bio.description<<endl;
+    cout<<"Age:"<<profile.bio.age;
+}
