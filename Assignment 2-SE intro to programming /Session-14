@@ -25,11 +25,11 @@ int isEven(int num)
 {
     if(num%2==0)
     {
-       true;
+       return 1;
     }
     else
     {
-        false;
+        return 0;
     }
 }
 
@@ -48,7 +48,6 @@ int main()
         printf("Odd number");
     }
 }
-DOUBT
 
 
 
