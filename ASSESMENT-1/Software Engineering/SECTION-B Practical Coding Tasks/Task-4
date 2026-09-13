@@ -1,1 +1,68 @@
+Task 4: Personal Expense Logger
+Build a menu-driven C program that lets a user log and view personal daily expenses, and saves all records to a text file on exit.
+-Define a struct Expense with fields: category (char[30]) and amount (float). Allocate an array to store up to 10 Expense entries.
+-Present a menu with 3 options: (1) Add Expense, (2) View All Expenses, (3) Save & Exit. Loop until the user selects option 3.
+-In the View option, display all logged expenses in a formatted list and print the running total at the bottom.
+-On exit (option 3), write all expense records to a file named expenses.txt using fprintf(), with one record per line in the format: category,amount.
 
+
+Answer-
+#include <stdio.h>
+struct Expense
+{
+    char category[30];
+    int amount;
+};
+int main()
+{
+    struct Expense e[10];
+    int choice,count=0,i,total;
+
+    do
+    {
+        printf("\n1. Add Expense");
+        printf("\n2. View Expenses");
+        printf("\n3. Save & Exit");
+        printf("\nEnter choice: ");
+        scanf("%d",&choice);
+
+        if(choice==1)
+        {
+            printf("Enter category: ");
+            scanf("%s",e[count].category);
+
+            printf("Enter amount: ");
+            scanf("%d",&e[count].amount);
+
+            count++;
+        }
+
+        if(choice==2)
+        {
+            total=0;
+
+            for(i=0;i<count;i++)
+            {
+                printf("%s %d\n",e[i].category,e[i].amount);
+                total=total+e[i].amount;
+            }
+
+            printf("Total=%d\n",total);
+        }
+
+        if(choice==3)
+        {
+            FILE *fp =fopen("expenses.txt","w");
+
+            for(i=0;i<count;i++)
+            {
+                fprintf(fp, "%s,%d\n",
+                        e[i].category,e[i].amount);
+            }
+
+            fclose(fp);
+            printf("Saved successfully.");
+        }
+
+    } while(choice!=3);
+}
