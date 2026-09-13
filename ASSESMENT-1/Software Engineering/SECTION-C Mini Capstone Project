@@ -7,3 +7,89 @@ single working program.
 -Write a function that calculates and displays the weekly total hours and daily average for each subject.
 -Display a simple text-based progress chart: for each subject, print one filled dot (•) per hour studied that day (truncate to nearest integer).
 -On exit, save all records to a file named productivity_log.txt using fprintf(), with each subject's name and 7 daily values written as a single comma-separated line.
+
+
+Answer-
+#include <stdio.h>
+struct StudyLog
+{
+    char subject[40];
+    int hours[7];
+};
+void report(struct StudyLog s[])
+{
+    int i,j,total;
+    for(i=0;i<3;i++)
+    {
+        total=0;
+        for(j=0;j<7;j++)
+            total=total+s[i].hours[j];
+
+        printf("\n%s: Total=%d,Average=%d",
+               s[i].subject,total,total/7);
+    }
+}
+int main()
+{
+    struct StudyLog s[3]= 
+    {
+        {"C", {0,0,0,0,0,0,0}},
+        {"Java", {0,0,0,0,0,0,0}},
+        {"Web", {0,0,0,0,0,0,0}}
+    };
+    int choice, sub, day, i, j, k;
+    FILE *fp;
+
+    do
+    {
+        printf("\n\n1. Log Hours");
+        printf("\n2. View Report");
+        printf("\n3. Save & Exit");
+        printf("\nEnter choice: ");
+        scanf("%d",&choice);
+
+        if(choice==1)
+        {
+            printf("Enter subject (1-C 2-Java 3-Web): ");
+            scanf("%d",&sub);
+
+            printf("Enter day (1-7): ");
+            scanf("%d",&day);
+
+            printf("Enter hours: ");
+            scanf("%d",&s[sub-1].hours[day-1]);
+        }
+        else if(choice==2)
+        {
+            report(s);
+            printf("\n\nProgress Chart:");
+
+            for(i=0;i<3;i++)
+            {
+                printf("\n%s: ",s[i].subject);
+
+                for(j=0;j<7;j++)
+                {
+                    for(k=0;k<s[i].hours[j];k++)
+                        printf("*");
+                }
+            }
+        }
+        else if(choice==3)
+        {
+            fp = fopen("productivity_log.txt", "w");
+
+            for(i=0;i<3;i++)
+            {
+                fprintf(fp,"%s",s[i].subject);
+
+                for(j = 0; j < 7; j++)
+                    fprintf(fp,",%d",s[i].hours[j]);
+
+                fprintf(fp,"\n");
+            }
+            fclose(fp);
+            printf("Saved successfully.");
+        }
+    } while(choice!=3);
+}
