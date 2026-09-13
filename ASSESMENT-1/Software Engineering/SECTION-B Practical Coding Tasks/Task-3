@@ -12,10 +12,9 @@ struct Student
 {
     char name[50];
     int rollno;
-    float marks;
+    int marks;
     char grade;
 };
-
 void assignGrade(struct Student *s)
 {
     if(s->marks>=90)
@@ -41,7 +40,7 @@ void printTopper(struct Student s[],int n)
     }
 
     printf("\nTopper: %s",s[top].name);
-    printf("\nMarks: %.2f",s[top].marks);
+    printf("\nMarks: %d",s[top].marks);
 }
 
 int main()
@@ -58,18 +57,16 @@ int main()
         scanf("%d",&s[i].rollno);
 
         printf("Enter marks: ");
-        scanf("%f",&s[i].marks);
+        scanf("%d",&s[i].marks);
 
         assignGrade(&s[i]);
     }
-
     printf("\nName\tRoll\tMarks\tGrade\n");
 
     for(i=0;i<3;i++)
     {
-        printf("%s\t%d\t%.2f\t%c\n",
+        printf("%s\t%d\t%d\t%c\n",
         s[i].name,s[i].rollno,s[i].marks,s[i].grade);
     }
-
     printTopper(s,3);
 }
