@@ -10,38 +10,38 @@ Answer-
 #include <stdio.h>
 int main()
 {
-    float percentage;
+    int percentage;
 
     printf("Enter percentage: ");
-    scanf("%f",&percentage);
+    scanf("%d",&percentage);
 
-    if (percentage<0||percentage>100)
+    if (percentage<0 || percentage>100)
     {
-        printf("Invalid percentage! enter a value between 0 to 100");
+        printf("Invalid percentage! Enter a value between 0 to 100");
     }
     else if (percentage>=90)
     {
-        printf("grade: A\n");
-        printf("excellent work! ");
+        printf("Grade: A\n");
+        printf("Excellent work!");
     }
     else if (percentage>=75)
     {
-        printf("grade: B\n");
-        printf("Good work! ");
+        printf("Grade: B\n");
+        printf("Good work!");
     }
     else if (percentage>=60)
     {
-        printf("grade: C\n");
-        printf("good effort!");
+        printf("Grade: C\n");
+        printf("Good effort!");
     }
     else if (percentage>=45)
     {
-        printf("grade: D\n");
-        printf("keep working hard!");
+        printf("Grade: D\n");
+        printf("Keep working hard!");
     }
     else
     {
-        printf("grade: F\n");
-        printf("don't give up! Try again.");
+        printf("Grade: F\n");
+        printf("Don't give up! Try again.");
     }
 }
