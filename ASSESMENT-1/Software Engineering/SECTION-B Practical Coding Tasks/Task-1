@@ -1,1 +1,47 @@
+Task 1: Grade Band Checker
+Build a console program that accepts a student's percentage score and prints their letter grade along with a short motivational message.
+-Accept a float percentage value as user input using scanf().
+-Assign a grade using if-else if: A (>= 90), B (>= 75), C (>= 60), D (>= 45), F (below 45).
+-Print the assigned grade and a one-line message for each band (e.g., 'B — Good work! Keep pushing.').
+-Handle invalid input: if the score is outside the range 0–100, print a clear error message and exit the program gracefully
 
+
+Answer-
+#include <stdio.h>
+int main()
+{
+    float percentage;
+
+    printf("Enter percentage: ");
+    scanf("%f",&percentage);
+
+    if (percentage<0||percentage>100)
+    {
+        printf("Invalid percentage! enter a value between 0 to 100");
+    }
+    else if (percentage>=90)
+    {
+        printf("grade: A\n");
+        printf("excellent work! ");
+    }
+    else if (percentage>=75)
+    {
+        printf("grade: B\n");
+        printf("Good work! ");
+    }
+    else if (percentage>=60)
+    {
+        printf("grade: C\n");
+        printf("good effort!");
+    }
+    else if (percentage>=45)
+    {
+        printf("grade: D\n");
+        printf("keep working hard!");
+    }
+    else
+    {
+        printf("grade: F\n");
+        printf("don't give up! Try again.");
+    }
+}
