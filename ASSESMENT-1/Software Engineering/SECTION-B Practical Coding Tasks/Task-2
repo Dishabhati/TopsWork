@@ -1,1 +1,50 @@
+Task 2: Weekly Study Hours Analyser
+Build a program that records a student's daily study hours for 7 days, stores them in an array, and generates a performance summary.
+-Use a for loop to accept 7 float values (one per day) and store them in a float array.
+-Calculate and print the weekly total, daily average, and the day number with the highest study hours.
+-Print a simple visual bar for each day: the day number followed by one asterisk (*) per hour studied, truncated to the nearest integer (e.g., Day 3: ***).
+-Reject and re-prompt for any day entry that is negative or greater than 24, before storing it in the array
 
+
+Answer-
+#include <stdio.h>
+int main()
+{
+    int hours[7],total=0,average,i,highest=0,j;
+
+    for(i=0;i<7;i++)
+    {
+        printf("enter study hours for day %d: ",i+1);
+        scanf("%d",&hours[i]);
+
+        while(hours[i]<0||hours[i]>24)
+        {
+            printf("Invalid! Enter hours between 0 to 24: ");
+            scanf("%d",&hours[i]);
+        }
+        total=total+hours[i];
+    }
+    for(i=1;i<7;i++)
+    {
+        if(hours[i]>hours[highest])
+        {
+            highest=i;
+        }
+    }
+    average=total/7;
+
+    printf("\nWeekly Total: %d hours",total);
+    printf("\nDaily Average: %d hours",average);
+    printf("\nHighest Study Hours: Day %d (%d hours)\n",highest+1,hours[highest]);
+    printf("\nStudy Hours Chart:\n");
+
+    for(i=0;i<7;i++)
+    {
+        printf("Day %d:",i+1);
+        for(j=0;j<hours[i];j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
