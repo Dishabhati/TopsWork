@@ -1,0 +1,9 @@
+Mini Project:  Student Productivity Tracker
+Objective:Build a console-based Student Productivity Tracker that logs daily study hours across subjects for a full week, combining arrays, structures, functions, and file handling from Module 3 into a
+single working program.
+->Your project must:
+-The program must be menu-driven with at least 3 options: (1) Log Today's Study Hours, (2) View Weekly Report, (3) Save & Exit.
+-Define a struct StudyLog { char subject[40]; float hours[7]; } and create an array of at least 3 subject records.
+-Write a function that calculates and displays the weekly total hours and daily average for each subject.
+-Display a simple text-based progress chart: for each subject, print one filled dot (•) per hour studied that day (truncate to nearest integer).
+-On exit, save all records to a file named productivity_log.txt using fprintf(), with each subject's name and 7 daily values written as a single comma-separated line.
