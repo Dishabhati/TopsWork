@@ -3,13 +3,13 @@ Ans.
 #include <stdio.h>
 void flipkart()
 {
-    char productName[] = "Samsung Galaxy S24";
-    float price = 74999.50;
-    double rating = 4.5;
+    char productName[] ="Samsung Galaxy S24";
+    int price=74999;
+    double rating=4.5;
 
-    printf("Product Name: %s\n", productName);
-    printf("Price: %f\n", price);
-    printf("Rating: %f\n", rating);
+    printf("Product Name: %s\n",productName);
+    printf("Price: %d\n",price);
+    printf("Rating: %f\n",rating);
 }
 int main()
 {
@@ -22,17 +22,17 @@ Ans.
 #include <stdio.h>
 void zomatoOrder()
 {
-    float GST_RATE=0.18;
-    float basePrice=500.00;
-    float gstAmount;
-    float finalPrice;
+    int gst_rate=18;
+    int basePrice=500;
+    int gstAmount;
+    int finalPrice;
 
-    gstAmount=basePrice*GST_RATE;
+    gstAmount=basePrice*gst_rate/100;
     finalPrice=basePrice+gstAmount;
 
-    printf("Base Price: %f\n", basePrice);
-    printf("GST Amount: %f\n", gstAmount);
-    printf("Final Price: %f\n", finalPrice);
+    printf("base price: %d\n",basePrice);
+    printf("gst amount: %d\n",gstAmount);
+    printf("final price: %d\n",finalPrice);
 }
 int main()
 {
