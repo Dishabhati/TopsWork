@@ -1,20 +1,17 @@
 1.Write a simple C program tasklist_c.c that allows you to add up to 5 tasks (as strings) to a global array and print all tasks using a for loop.
 Ans.
 #include <stdio.h>
-char tasks[5][100];
-int count = 0;
+char tasks[5][50];
 int main()
 {
     int i;
-    printf("Enter 5 tasks:\n");
     for(i=0;i<5;i++)
     {
-        printf("Enter task %d: ",i+1);
+        printf("Enter task:");
         scanf(" %[^\n]",tasks[i]);
-        count++;
     }
     printf("\nTask List:\n");
-    for(i=0;i<count;i++)
+    for(i=0;i<5;i++)
     {
         printf("%d. %s\n",i+1,tasks[i]);
     }
@@ -22,6 +19,36 @@ int main()
 
 
 2.Modify your tasklist_c.c to add a function markTaskDone(int index) that sets the selected task to 'DONE' in the array, then print the updated list.<br><br><em><strong>Hint:</strong> Use a separate status array or append ' - DONE' to the task string.</em>
+Ans.
+#include <stdio.h>
+char tasks[5][50];
+int status[5];
+void markTaskDone(int index)
+{
+    status[index]=1;
+}
+int main()
+{
+    int i;
+    for(i=0;i<5;i++)
+    {
+        printf("Enter task: ");
+        scanf(" %[^\n]",tasks[i]);
+        status[i]=0;
+    }
+    markTaskDone(1);
+    printf("\nUpdated Task List:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("%d. %s",i+1,tasks[i]);
+        if(status[i]==1)
+        {
+            printf("- done");
+        }
+        printf("\n");
+    }
+}
+
 
 3.Create a Task class in your favorite OOP language (Java, Python, or C++) with properties: title and isDone. Add a method markDone() that sets isDone to true, and a method display() that prints the task with its status.
 
