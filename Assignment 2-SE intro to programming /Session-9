@@ -37,7 +37,7 @@ int main()
 3.Build a function that takes a 1D array of 7 integers representing your daily Zomato order amounts and calculates the average spend for the week.<br><br><em><strong>Hint:</strong> Use a loop to sum the values, then divide by the array length.</em>
 Ans.
 #include <stdio.h>
-float average(int arr[]) 
+int average(int arr[]) 
 {
     int i,sum=0;
 
@@ -51,7 +51,7 @@ float average(int arr[])
 int main() 
 {
     int orders[7] = {100, 200, 300, 400, 200, 100, 300};
-    printf("average=%.2f",average(orders));
+    printf("average=%d",average(orders));
 }
 
 4.Given a 2D array called cricketScores where each row represents an IPL match and columns represent runs scored by each team, write code to print the highest score from each match.
