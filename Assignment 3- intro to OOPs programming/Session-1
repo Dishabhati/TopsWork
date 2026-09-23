@@ -22,36 +22,113 @@ int main()
 Ans.
 #include <stdio.h>
 char tasks[5][50];
-int status[5];
+int count=0;
 void markTaskDone(int index)
 {
-    status[index]=1;
+    printf("%s - DONE\n",tasks[index]);
 }
 int main()
 {
     int i;
-    for(i=0;i<5;i++)
+    for(i=0;i<3;i++)
     {
         printf("Enter task: ");
         scanf(" %[^\n]",tasks[i]);
-        status[i]=0;
+        count++;
     }
-    markTaskDone(1);
-    printf("\nUpdated Task List:\n");
-    for(i=0;i<5;i++)
+    printf("\nTasks:\n");
+    for(i=0;i<count;i++)
     {
-        printf("%d. %s",i+1,tasks[i]);
-        if(status[i]==1)
-        {
-            printf("- done");
-        }
-        printf("\n");
+        if(i==1)
+            markTaskDone(i);
+        else
+            printf("%s - Pending\n",tasks[i]);
     }
 }
 
 
 3.Create a Task class in your favorite OOP language (Java, Python, or C++) with properties: title and isDone. Add a method markDone() that sets isDone to true, and a method display() that prints the task with its status.
+Ans-
+#include <iostream>
+using namespace std;
+class Task
+{
+public:
+    string title;
+    string status="Pending";
+
+    void markDone()
+    {
+        status="DONE";
+    }
+    void display()
+    {
+        cout<<title<<"-"<<status<<endl;
+    }
+};
+
+int main()
+{
+    Task t;
+    t.title="Study";
+    t.display();
+    t.markDone();
+    t.display();
+}
+
 
 4.Build a simple TaskList class/object that stores multiple Task objects and provides addTask(title), markTaskDone(index), and showTasks() methods. Demonstrate adding 3 tasks, marking one as done, and displaying all tasks with their statuses.
+Ans-
+#include <iostream>
+using namespace std;
+class Task
+{
+public:
+    string title;
+    string status="Pending";
+};
+class TaskList
+{
+public:
+    Task tasks[5];
+    int count=0;
+
+    void addTask(string name)
+    {
+        tasks[count].title=name;
+        count++;
+    }
+    void markTaskDone(int index)
+    {
+        tasks[index].status="DONE";
+    }
+    void showTasks()
+    {
+        for(int i=0;i<count;i++)
+        {
+            cout<<tasks[i].title<<"-"<< tasks[i].status<<endl;
+        }
+    }
+};
+int main()
+{
+    TaskList list;
+
+    list.addTask("Shopping");
+    list.addTask("Study");
+    list.addTask("Assignment");
+    list.markTaskDone(1);
+    list.showTasks();
+}
+
 
 5.Compare your procedural C version and OOP TaskList version: List 3 problems you faced in the C version that were solved by using classes and methods in the OOP version.
+Ans-
+->C-Task data and status were stored separately.
+->OOP-Task class stores them together.
+
+->C-We needed separate functions to manage tasks.
+->OOP-Methods like markDone() are part of the Task class.
+
+->C-Managing many tasks becomes harder.
+->OOP-TaskList can easily store and manage multiple Task objects.
