@@ -1,1 +1,74 @@
+1.Create a base class called SocialMediaUser with properties username and followers, and a method displayProfile() that prints the username and follower count.
+Ans.
+#include <iostream>
+using namespace std;
+class SocialMediaUser
+{
+public:
+    string username;
+    int followers;
 
+    void displayProfile()
+    {
+        cout<<"Username:"<<username<<endl;
+        cout<<"Followers:"<<followers<<endl;
+    }
+};
+int main()
+{
+    SocialMediaUser user;
+
+    user.username="Disha";
+    user.followers=1000;
+    user.displayProfile();
+}
+
+
+2.Build a YouTuber class that inherits from SocialMediaUser and adds a property channelName and a method uploadVideo(title) that prints 'Video [title] uploaded to [channelName]'.
+Ans.
+#include <iostream>
+using namespace std;
+class SocialMediaUser
+{
+public:
+    string username;
+    int followers;
+
+    void displayProfile()
+    {
+        cout<<username<<endl;
+        cout<<followers<<endl;
+    }
+};
+class YouTuber : public SocialMediaUser
+{
+public:
+    string channelName;
+    void uploadVideo(string title)
+    {
+        cout<<"Video: "<<title<<" uploaded to "<<channelName<<endl;
+    }
+};
+int main()
+{
+    YouTuber y;
+
+    y.username="Disha";
+    y.followers=1000;
+    y.channelName="Disha Vlogs";
+
+    y.displayProfile();
+    y.uploadVideo("My First Video");
+}
+
+3.Create a Podcaster class that also inherits from SocialMediaUser and adds a property podcastName and a method publishEpisode(episodeTitle) that prints 'Episode [episodeTitle] published on [podcastName]'.
+Ans.
+
+
+4.Demonstrate multilevel inheritance by creating a class GamingYouTuber that inherits from YouTuber and adds a method streamGame(gameName) which prints '[username] is now streaming [gameName] on [channelName]'.
+Ans.
+
+
+5.Implement hierarchical inheritance by creating an InstagramInfluencer class that inherits from SocialMediaUser and adds a method postStory(storyTitle) which prints '[username] posted a new story: [storyTitle]'.
+<br><br><em><strong>Hint:</strong> Think about how SocialMediaUser is the parent for YouTuber, Podcaster, and InstagramInfluencer.</em>
+Ans.
