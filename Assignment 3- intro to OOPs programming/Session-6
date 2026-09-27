@@ -1,1 +1,137 @@
+1.Create a class called Song in your preferred OOP language with private properties title and artist. Add public getter and setter methods to access and modify these properties, then create an object and update its title.
+Ans.
+#include <iostream>
+using namespace std;
+class Song
+{
+private:
+    string title;
+    string artist;
 
+public:
+    void setTitle(string t)
+    {
+        title=t;
+    }
+    string getTitle()
+    {
+        return title;
+    }
+    void setArtist(string a)
+    {
+        artist=a;
+    }
+    string getArtist()
+    {
+        return artist;
+    }
+};
+int main()
+{
+    Song s;
+    s.setTitle("Perfect");
+    s.setArtist("Ed Sheeran");
+    s.setTitle("Shape of You");
+    cout<<s.getTitle();
+}
+
+
+2.Build a class called InstaStory with a protected property storyViews. Create a subclass called SponsoredStory that can access and display the storyViews value.
+Ans.
+#include <iostream>
+using namespace std;
+class InstaStory
+{
+protected:
+    int storyViews;
+
+public:
+    InstaStory()
+    {
+        storyViews=1000;
+    }
+};
+class SponsoredStory:public InstaStory
+{
+public:
+    void display()
+    {
+        cout<<"Story Views: "<<storyViews;
+    }
+};
+int main()
+{
+    SponsoredStory s;
+    s.display();
+}
+
+3.Imagine a Flipkart-like app: create an abstract class Product with an abstract method upload(). Then, create two subclasses, Electronics and Clothing, that each implement the upload() method to print a different upload message.
+Ans.
+#include <iostream>
+using namespace std;
+class Product
+{
+public:
+    virtual void upload()=0;
+};
+class Electronics:public Product
+{
+public:
+    void upload()
+    {
+        cout<<"Electronics product uploaded"<<endl;
+    }
+};
+class Clothing:public Product
+{
+public:
+    void upload()
+    {
+        cout<<"Clothing product uploaded"<<endl;
+    }
+};
+int main()
+{
+    Electronics e;
+    Clothing c;
+
+    e.upload();
+    c.upload();
+}
+
+
+4.Refactor the following code so that the user’s phone number in the UserProfile class is private and can only be set or retrieved using public methods.<br><br><em><strong>Hint:</strong> Add private access modifier to the phone number and create setPhoneNumber() and getPhoneNumber() methods.</em>
+Ans.
+#include <iostream>
+using namespace std;
+class UserProfile
+{
+private:
+    string phoneNumber;
+public:
+    void setPhoneNumber(string number)
+    {
+        phoneNumber=number;
+    }
+    string getPhoneNumber()
+    {
+        return phoneNumber;
+    }
+};
+int main()
+{
+    UserProfile u;
+    u.setPhoneNumber("1234567890");
+    cout<<u.getPhoneNumber();
+}
+
+5.Explain in your own words the difference between encapsulation and abstraction, using examples from any social media app you use daily (like Instagram or WhatsApp).
+Ans.
+-Encapsulation-Hides data
+-Abstraction-Hides implementation
+
+-Encapsulation-Uses private, protected, public
+-Abstraction-Uses abstract class and pure virtual function
+
+-Encapsulation-Example: private phone number
+-Abstraction-Example: upload() without showing its internal working
