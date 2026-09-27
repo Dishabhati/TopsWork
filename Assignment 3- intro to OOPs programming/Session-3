@@ -106,3 +106,30 @@ doubt
 
 5.Modify your Playlist class so that it auto-saves the playlist name to a file called autosave.txt when the object is destroyed, simulating an auto-save feature like Spotify.<br><br><em><strong>Hint:</strong> Write the file-saving code inside the destructor.</em>
 Ans.
+#include <iostream>
+#include <fstream>
+using namespace std;
+class Playlist
+{
+public:
+    string name;
+
+    Playlist()
+    {
+        name="My Favourites";
+    }
+
+    Playlist()
+    {
+        ofstream file("autosave.txt");
+        file<<name;
+        file.close();
+        cout<<"playlist saved!"<<endl;
+    }
+};
+int main()
+{
+    Playlist p;
+    cout<<"playlist: "<<p.name<<endl;
+}
+shows error
