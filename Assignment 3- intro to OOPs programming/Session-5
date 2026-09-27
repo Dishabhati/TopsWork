@@ -1,2 +1,115 @@
+1.Create a Java class called PaymentProcessor with two overloaded methods processPayment(): one that takes only an amount, and one that takes amount and a coupon code. Print which version is called and the final amount in each case.
+Ans.
+#include <iostream>
+using namespace std;
+class PaymentProcessor
+{
+public:
+    void processPayment(int amount)
+    {
+        cout<<"Payment without coupon: "<<amount<<endl;
+    }
+    void processPayment(int amount, string coupon)
+    {
+        cout<<"Coupon used: "<<coupon<<endl;
+        cout<<"Final amount: "<<amount-100<<endl;
+    }
+};
+int main()
+{
+    PaymentProcessor p;
 
-use 4 que in virtual function
+    p.processPayment(1000);
+    p.processPayment(1000, "SAVE100");
+}
+
+2.Build two classes, InstagramUploader and YouTubeUploader, each with a method uploadContent(). Both should extend a base class SocialMediaUploader and override uploadContent() to print a message showing how uploading works differently for Instagram and YouTube.
+Ans.
+#include <iostream>
+using namespace std;
+class SocialMediaUploader
+{
+public:
+    virtual void uploadContent()
+    {
+        cout<<"Uploading content"<<endl;
+    }
+};
+class InstagramUploader:public SocialMediaUploader
+{
+public:
+    void uploadContent()
+    {
+        cout<<"Uploading photo on Instagram"<<endl;
+    }
+};
+class YouTubeUploader:public SocialMediaUploader
+{
+public:
+    void uploadContent()
+    {
+        cout<<"Uploading video on YouTube"<<endl;
+    }
+};
+
+int main()
+{
+    InstagramUploader i;
+    YouTubeUploader y;
+
+    i.uploadContent();
+    y.uploadContent();
+}
+
+3.Write a function in Java or Python that simulates a Flipkart-style search: overload a method searchProduct() to allow searching by product name or by product name and category. Demonstrate both usages with sample data.
+Ans.
+#include <iostream>
+using namespace std;
+class Flipkart
+{
+public:
+    void searchProduct(string name)
+    {
+        cout<<"Searching for: "<<name<<endl;
+    }
+
+    void searchProduct(string name,string category)
+    {
+        cout<<"Searching for: "<<name<<" in "<<category<<endl;
+    }
+};
+
+int main()
+{
+    Flipkart f;
+    f.searchProduct("Laptop");
+    f.searchProduct("Laptop","Electronics");
+}
+
+4.Given this code: class MusicPlayer { void play(String song) { System.out.println("Playing: " + song); } } class SpotifyPlayer extends MusicPlayer { void play(String song) { System.out.println("Streaming on Spotify: " + song); } } — Create an object of type MusicPlayer but assign it a SpotifyPlayer instance, then call play(). Explain the output.<br><br><em><strong>Hint:</strong> This tests runtime polymorphism (overriding) and dynamic method dispatch.</em>
+use virtual function
+Ans.
+#include <iostream>
+using namespace std;
+class MusicPlayer
+{
+public:
+    virtual void play(string song)
+    {
+        cout<<"Playing: "<<song<<endl;
+    }
+};
+class SpotifyPlayer:public MusicPlayer
+{
+public:
+    void play(string song)
+    {
+        cout<<"Streaming on Spotify: "<<song<<endl;
+    }
+};
+int main()
+{
+    SpotifyPlayer s;
+    MusicPlayer &p=s;
+    p.play("Perfect");
+}
