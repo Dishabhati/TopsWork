@@ -1,0 +1,10 @@
+1.
+Create a Content class with properties: title, platform, views, and status. Write a method to display all details of a Content object.
+2.
+Build a console menu that lets users add new content ideas (title, platform, views, status) and save each entry to a text file named content_list.txt.<br><br><em><strong>Hint:</strong> Use file handling to append each new content item to the file.</em>
+3.
+Implement a function to read all content items from content_list.txt and display them in a numbered list, showing title and platform for each.
+4.
+Add an option in your console app to let users update the status of any content idea by selecting its number from the displayed list and saving the change back to the file.<br><br><em><strong>Hint:</strong> You will need to read all items, modify the selected one, and overwrite the file.</em>
+5.
+Add a feature to delete a content item by its number from the list, update the file accordingly, and display the updated list to confirm deletion.
