@@ -61,12 +61,92 @@ int main()
 
 3.Implement a function to read all content items from content_list.txt and display them in a numbered list, showing title and platform for each.
 Ans.
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+    ifstream file("content_list.txt");
 
+    string title,platform,status;
+    int views,no=1;
+
+    while(file>>title>>platform>>views>>status)
+    {
+        cout<<no<<". "<<title<< " - "<<platform<<endl;no++;
+    }
+    file.close();
+}
 
 4.Add an option in your console app to let users update the status of any content idea by selecting its number from the displayed list and saving the change back to the file.<br><br><em><strong>Hint:</strong> You will need to read all items, modify the selected one, and overwrite the file.</em>
 Ans.
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+    string title[100],platform[100],status[100];
+    int views[100],count=0;
+    
+    ifstream file("content_list.txt");
 
+    while(file>>title[count]>>platform[count]>>views[count]>>status[count])
+    {
+        count++;
+    }
+
+    file.close();
+
+    int number;
+    cout<<"Enter content number: ";
+    cin>>number;
+
+    cout<<"Enter new status: ";
+    cin>>status[number - 1];
+
+    ofstream outFile("content_list.txt");
+
+    for(int i=0;i<count;i++)
+    {
+        outFile<<title[i]<<" "<<platform[i]<<" "<<views[i]<<" "<<status[i]<<endl;
+    }
+    outFile.close();
+    cout<<"Status updated";
+}
 
 5.Add a feature to delete a content item by its number from the list, update the file accordingly, and display the updated list to confirm deletion.
 Ans.
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+    string title[100],platform[100],status[100];
+    int views[100];
+    int count=0;
 
+    ifstream file("content_list.txt");
+
+    while(file>>title[count]>>platform[count]>>views[count]>>status[count])
+    {
+        count++;
+    }
+
+    file.close();
+
+    int number;
+    cout<<"Enter content number to delete: ";
+    cin>>number;
+
+    ofstream outFile("content_list.txt");
+
+    for(int i=0;i<count;i++)
+    {
+        if(i!=number-1)
+        {
+            outFile<<title[i]<<" "<<platform[i]<<" "<<views[i]<<" "<<status[i]<<endl;
+        }
+    }
+    outFile.close();
+    cout<<"Content deleted!"<<endl;
+}
