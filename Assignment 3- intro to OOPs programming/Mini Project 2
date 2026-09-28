@@ -78,6 +78,7 @@ int main()
     file.close();
 }
 
+
 4.Add an option in your console app to let users update the status of any content idea by selecting its number from the displayed list and saving the change back to the file.<br><br><em><strong>Hint:</strong> You will need to read all items, modify the selected one, and overwrite the file.</em>
 Ans.
 #include <iostream>
@@ -114,6 +115,7 @@ int main()
     cout<<"Status updated";
 }
 
+
 5.Add a feature to delete a content item by its number from the list, update the file accordingly, and display the updated list to confirm deletion.
 Ans.
 #include <iostream>
@@ -121,32 +123,27 @@ Ans.
 using namespace std;
 int main()
 {
-    string title[100],platform[100],status[100];
-    int views[100];
-    int count=0;
+    string title[10],platform[10],status[10];
+    int views[10],count=0,no;
 
     ifstream file("content_list.txt");
 
     while(file>>title[count]>>platform[count]>>views[count]>>status[count])
-    {
         count++;
-    }
 
     file.close();
 
-    int number;
-    cout<<"Enter content number to delete: ";
-    cin>>number;
+    cout<<"Enter number to delete: ";
+    cin>>no;
 
-    ofstream outFile("content_list.txt");
+    ofstream out("content_list.txt");
 
     for(int i=0;i<count;i++)
     {
-        if(i!=number-1)
-        {
-            outFile<<title[i]<<" "<<platform[i]<<" "<<views[i]<<" "<<status[i]<<endl;
-        }
+        if(i!=no-1)
+            out<<title[i]<<" "<<platform[i]<<" "<<views[i]<<" "<<status[i]<<endl;
     }
-    outFile.close();
-    cout<<"Content deleted!"<<endl;
+
+    out.close();
+    cout<<"Deleted";
 }
