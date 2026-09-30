@@ -72,7 +72,7 @@ using namespace std;
 class Product
 {
 public:
-    virtual void upload()=0;
+    virtual void upload() = 0;
 };
 class Electronics:public Product
 {
@@ -100,7 +100,7 @@ int main()
 }
 
 
-4.Refactor the following code so that the user’s phone number in the UserProfile class is private and can only be set or retrieved using public methods.<br><br><em><strong>Hint:</strong> Add private access modifier to the phone number and create setPhoneNumber() and getPhoneNumber() methods.</em>
+4.Refactor the following code so that the user’s phone number in the UserProfile class is private and can only be set or retrieved using public methods.<br><br><em><strong>Hint:</strong> Add private access modifier to the phone number and create setPhoneNumber() and getPhoneNumber() methods.</em> encapsulation
 Ans.
 #include <iostream>
 using namespace std;
