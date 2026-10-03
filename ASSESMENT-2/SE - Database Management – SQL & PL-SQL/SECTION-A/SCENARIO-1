@@ -1,0 +1,8 @@
+SCENARIO
+You are designing the database for a food delivery application. It stores restaurant details, menu items linked to each restaurant, and customer orders. You must decide which columns need NOT NULL constraints, which serve as PRIMARY KEYs, and which link
+tables via FOREIGN KEYs.
+
+Question: Justify your constraint choices for at least three columns across two tables. What
+data integrity problems would arise if these constraints were not applied?
+
+ANSWER-
