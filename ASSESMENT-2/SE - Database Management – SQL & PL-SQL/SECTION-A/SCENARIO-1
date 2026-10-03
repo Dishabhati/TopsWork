@@ -1,8 +1,25 @@
 SCENARIO
-You are designing the database for a food delivery application. It stores restaurant details, menu items linked to each restaurant, and customer orders. You must decide which columns need NOT NULL constraints, which serve as PRIMARY KEYs, and which link
-tables via FOREIGN KEYs.
+You are managing the database for a food delivery platform. The operations team asks you to update the status of all orders placed more than 7 days ago that are still marked
+'Pending' to 'Cancelled', and to permanently delete menu items marked 'Unavailable' from restaurants that have closed.
 
-Question: Justify your constraint choices for at least three columns across two tables. What
-data integrity problems would arise if these constraints were not applied?
+Question: Explain why the WHERE clause is essential in each DML statement. What could go
+wrong with an UPDATE or DELETE executed without a proper WHERE condition?
 
-ANSWER-
+Answer-
+Table           	Column	            Constraint	             Justification
+Restaurant	      restaurant_id	      PRIMARY KEY	Uniquely     identifies each restaurant.
+Restaurant	      restaurant_name	    NOT NULL	               Every restaurant must have a name.
+Menu_Item	        restaurant_id	      FOREIGN KEY	             Connects each menu item to an existing restaurant.
+Menu_Item	        item_name	          NOT NULL	               A menu item should always have a name.
+
+restaurant_id as PRIMARY KEY:
+It prevents duplicate restaurant IDs and uniquely identifies every restaurant. Without it, two restaurants could have the same ID, causing confusion when updating or retrieving data.
+
+restaurant_name as NOT NULL:
+A restaurant should have a name. Without NOT NULL, a restaurant record could be created without any name, making the data incomplete.
+
+restaurant_id in Menu_Item as FOREIGN KEY:
+It ensures that a menu item belongs to an existing restaurant. Without the foreign key, a menu item could reference a restaurant that does not exist, creating orphan records and incorrect data.
+
+item_name as NOT NULL:
+Every menu item needs a name so customers can identify what they are ordering. Without this constraint, unnamed items could be stored in the database.
