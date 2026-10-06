@@ -1,1 +1,39 @@
+SCENARIO
+You are building a revenue dashboard for a food delivery startup. The management wants total revenue, average order value, and number of orders per restaurant — but
+only for restaurants that have processed more than 20 orders in the current month.
 
+Question: Which SQL clauses and aggregate functions would you use to produce this report?
+Explain why HAVING must be used here rather than WHERE to filter by aggregate results.
+
+
+ANSWER-
+SELECT 
+    restaurant_id,
+    SUM(order_amount) AS total_revenue,
+    AVG(order_amount) AS average_order_value,
+    COUNT(order_id) AS number_of_orders
+FROM orders
+WHERE MONTH(order_date)=MONTH(CURRENT_DATE)
+  AND YEAR(order_date)=YEAR(CURRENT_DATE)
+GROUP BY restaurant_id
+HAVING COUNT(order_id)>20;
+
+Aggregate functions used
+SUM(order_amount) - calculates the total revenue of each restaurant.
+AVG(order_amount) - calculates the average order value.
+COUNT(order_id) - calculates the number of orders.
+
+->Why use HAVING instead of WHERE?
+
+The important difference is:
+WHERE filters individual rows before grouping.
+HAVING filters groups after aggregation.
+
+Here, COUNT(order_id) > 20 is an aggregate condition. We first need to count the orders for each restaurant and then keep only restaurants with more than 20 orders.
+
+Therefore, we use: HAVING COUNT(order_id) > 20;
+
+We cannot normally use:WHERE COUNT(order_id) > 20
+
+because WHERE operates before GROUP BY and cannot filter the result of an aggregate function.
+In short: WHERE filters rows, while HAVING filters grouped/aggregated results.
