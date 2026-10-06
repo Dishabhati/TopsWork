@@ -6,20 +6,35 @@ Question: Explain why the WHERE clause is essential in each DML statement. What 
 wrong with an UPDATE or DELETE executed without a proper WHERE condition?
 
 Answer-
-Table           	Column	            Constraint	             Justification
-Restaurant	      restaurant_id	      PRIMARY KEY	Uniquely     identifies each restaurant.
-Restaurant	      restaurant_name	    NOT NULL	               Every restaurant must have a name.
-Menu_Item	        restaurant_id	      FOREIGN KEY	             Connects each menu item to an existing restaurant.
-Menu_Item	        item_name	          NOT NULL	               A menu item should always have a name.
+1. UPDATE statement-To change only pending orders that were placed more than 7 days ago:
 
-restaurant_id as PRIMARY KEY:
-It prevents duplicate restaurant IDs and uniquely identifies every restaurant. Without it, two restaurants could have the same ID, causing confusion when updating or retrieving data.
+UPDATE orders
+SET status = 'Cancelled'
+WHERE status = 'Pending'
+AND order_date < CURRENT_DATE - INTERVAL 7 DAY;
 
-restaurant_name as NOT NULL:
-A restaurant should have a name. Without NOT NULL, a restaurant record could be created without any name, making the data incomplete.
+->The WHERE clause ensures that only the required old Pending orders are cancelled.
 
-restaurant_id in Menu_Item as FOREIGN KEY:
-It ensures that a menu item belongs to an existing restaurant. Without the foreign key, a menu item could reference a restaurant that does not exist, creating orphan records and incorrect data.
+->Without the WHERE clause:
 
-item_name as NOT NULL:
-Every menu item needs a name so customers can identify what they are ordering. Without this constraint, unnamed items could be stored in the database.
+UPDATE orders
+SET status = 'Cancelled';
+
+->All orders would become Cancelled, including recent, completed, or active orders. This could cause serious data loss and incorrect order information.
+
+2. DELETE statement-To delete only unavailable menu items belonging to closed restaurants:
+
+DELETE FROM menu_items
+WHERE status = 'Unavailable'
+AND restaurant_id IN (
+    SELECT restaurant_id
+    FROM restaurants
+    WHERE status = 'Closed'
+);
+->The WHERE clause ensures that only Unavailable items from closed restaurants are permanently deleted.
+
+->Without the WHERE clause:
+
+DELETE FROM menu_items;
+
+->All menu items would be permanently deleted, including available items and items from restaurants that are still operating.
