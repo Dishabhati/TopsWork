@@ -7,3 +7,20 @@ Question: Compare INNER JOIN and LEFT JOIN for this query. Which would you use a
 Describe what each join type does to records that have no match in the other table.
 
 Answer- 
+Which Join to Use and Why?
+we should use a LEFT JOIN for this query.
+
+Left Join returns left table + common data.
+
+Inner Join returns only common data.
+
+Applying this to your tables (orders as the left table and restaurants as the right table):
+
+How LEFT JOIN handles the scenario:
+Your requirement states that the page must show order details "for every order — including any that reference a restaurant no longer in the table."
+Since LEFT JOIN returns all records from the left table (orders) plus any matching records from the right table (restaurants), every single order 
+will be displayed. If a restaurant is no longer in the table, the query will still include the order, returning NULL for the missing restaurant details.
+
+Why INNER JOIN fails here:
+An INNER JOIN only returns common data (matching records in both tables). If an order references a restaurant that has been deleted from the restaurants table, 
+there is no match, so the INNER JOIN will drop that order entirely from your results, violating your requirement.
