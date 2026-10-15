@@ -1,0 +1,44 @@
+Design and Populate a Restaurant Database
+Create a structured schema for a food delivery system and populate it with sample data using
+DDL and DML commands.
+
+1.Create a database named foodapp_db and a table named restaurants with columns:
+restaurant_id (INT, AUTO_INCREMENT, PRIMARY KEY), name (VARCHAR, NOT NULL), city
+(VARCHAR), cuisine_type (VARCHAR), and rating (DECIMAL(3,1)).
+-create database foodapp_db;
+use foodapp_db;
+
+create table restaurants (
+    restaurant_id int auto_increment primary key,
+    name varchar(50) not null,
+    city varchar(30),
+    cuisine_type varchar(30),
+    rating decimal(3,1)
+);
+
+
+2.Insert at least 6 restaurant records spanning at least 3 different cities.
+-insert into restaurants (name, city, cuisine_type, rating) values
+('Spice Garden', 'Ahmedabad', 'North Indian', 4.5),
+('Burger Barn', 'Mumbai', 'Fast Food', 4.2),
+('Pasta Paradise', 'Ahmedabad', 'Italian', 4.7),
+('Dragon Wok', 'Bangalore', 'Chinese', 4.3),
+('Taco Fiesta', 'Mumbai', 'Mexican', 4.1),
+('Dosa Plaza', 'Ahmedabad', 'South Indian', 4.6);
+
+
+3.Update the rating of one restaurant and delete one restaurant record using a WHERE condition.
+update restaurants 
+set rating = 4.8 
+where restaurant_id = 1; 
+
+
+delete from restaurants 
+where restaurant_id = 2; 
+
+
+4.Write a SELECT query that retrieves all restaurants sorted by rating in descending order.
+select*from restaurants 
+order by rating desc;
+
+
