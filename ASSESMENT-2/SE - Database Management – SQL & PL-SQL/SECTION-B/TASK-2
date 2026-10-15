@@ -1,0 +1,52 @@
+Write SELECT queries using aggregate functions and GROUP BY to produce a restaurant-level
+revenue summary from order data.
+
+1.Create an orders table with columns: order_id, restaurant_id, customer_name, total_amount,
+and order_date. Insert at least 12 orders distributed across at least 4 restaurants.
+
+create table orders (
+    order_id int auto_increment primary key,
+    restaurant_id int,
+    customer_name varchar(50),
+    total_amount decimal(10,2),
+    order_date date,
+    foreign key (restaurant_id) references restaurants(restaurant_id)
+);
+
+insert into orders (restaurant_id, customer_name, total_amount, order_date) VALUES
+(1, 'Aarav Patel', 1200.00, '2026-10-01'),
+(1, 'Priya Shah', 4500.50, '2026-10-02'),
+(1, 'Rohan Mehta', 1500.00, '2026-10-05'),
+(3, 'Neha Gupta', 800.00, '2026-10-03'),
+(3, 'Amit Kumar', 2500.00, '2026-10-04'),
+(3, 'Sneha Joshi', 1100.00, '2026-10-06'),
+(4, 'Rajesh Varma', 3200.00, '2026-10-01'),
+(4, 'Kavita Rao', 2100.00, '2026-10-05'),
+(4, 'Vikram Singh', 4300.00, '2026-10-06'),
+(6, 'Pooja Nair', 950.00, '2026-10-02'),
+(6, 'Manish Tiwari', 1800.00, '2026-10-04'),
+(6, 'Deepak Verma', 2600.00, '2026-10-06');
+
+
+
+2.Write a query to show total revenue and average order value per restaurant.
+
+select name, SUM(total_amount), avg(total_amount)
+from restaurants,orders
+where restaurants.restaurant_id=orders.restaurant_id
+group by name;
+
+3.Write a query using HAVING to list only restaurants whose total revenue exceeds Rs 5,000.
+
+select name, SUM(total_amount)
+from restaurants, orders
+where restaurants.restaurant_id=orders.restaurant_id
+group by name
+having SUM(total_amount)>5000;
+
+
+4.Write a query to retrieve the 5 most recent orders using ORDER BY and LIMIT
+
+select*from orders 
+order by order_date desc 
+limit 5;
