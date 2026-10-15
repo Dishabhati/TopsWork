@@ -1,102 +1,23 @@
 1.Write a PL/SQL block that declares two variables: one for a user's name (VARCHAR2) and one for their age (NUMBER). Assign values and print both using DBMS_OUTPUT.PUT_LINE.
 Ans.
-DELIMITER //
-create procedure show_details()
-begin
-    declare user_name varchar(50) default 'Rahul';
-    declare user_age int default 20;
 
-    select user_name as name, user_age as Age;
-end //
-DELIMITER ;
-
-call show_details();
 
 
 2.Create a PL/SQL block that uses an IF statement to check if a given order amount is above 500. If yes, print 'Eligible for free delivery', else print 'Delivery charges apply'.
 Ans.
-DELIMITER //
 
-create procedure check_order()
-begin
-    declare order_amount decimal(10,2) default 600;
-
-    if order_amount>500 then
-        select 'Eligible for free delivery' as Message;
-    else
-        select 'Delivery charges apply' as Message;
-    end if;
-end //
-DELIMITER ;
-
-call check_order();
 
 
 3.Write a PL/SQL block that uses a simple LOOP to print the numbers 1 to 5 using DBMS_OUTPUT.PUT_LINE.<br><br><em><strong>Hint:</strong> Use a counter variable and EXIT WHEN condition inside the loop.</em>
 Ans.
-DELIMITER //
-create procedure print_numbers()
-begin
-    declare counter int default 1;
 
-    while counter <= 5 do
-        select counter as number;
-        set counter = counter + 1;
-    end while;
-end //
-DELIMITER ;
 
-call print_numbers();
 
 
 4.Declare a cursor in PL/SQL to select all product names from a table called PRODUCTS. Fetch each product name and print it using DBMS_OUTPUT.PUT_LINE.<br><br><em><strong>Hint:</strong> Assume the PRODUCTS table has a column PRODUCT_NAME.</em>
 Ans.
-DELIMITER //
-
-create procedure show_products()
-begin
-    declare finished int default 0;
-    declare p_name varchar(100);
-
-    declare product_cursor cursor for
-        select PRODUCT_NAME from PRODUCTS;
-
-        set finished = 1;
-
-    open product_cursor;
-
-    product_loop: loop
-        fetch product_cursor into p_name;
-
-        if finished = 1 then
-            leave product_loop;
-        end if;
-
-        select p_name as Product_Name;
-        end loop;
-
-    close product_cursor;
-end //
-
-DELIMITER ;
-
-call show_products();
 
 
 5.Write a PL/SQL block that tries to divide two numbers entered as variables. If a division by zero occurs, catch the exception and print 'Cannot divide by zero'. Otherwise, print the result.
 Ans.
-DELIMITER //
-create procedure divide_safely()
-begin
-    declare num1 decimal(10,2) default 10;
-    declare num2 decimal(10,2) default 0;
 
-    if num2=0 then
-        select 'Cannot divide by zero' as Message;
-    else
-        select num1 / num2 as Division_Result;
-    end if;
-end //
-DELIMITER ;
-
-call divide_safely();
