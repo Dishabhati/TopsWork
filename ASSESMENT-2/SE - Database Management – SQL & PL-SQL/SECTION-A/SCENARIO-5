@@ -1,1 +1,26 @@
+SCENARIO-You are building the analytics layer for a food delivery platform. A senior developer proposes a VIEW called top_restaurants 
+showing restaurant name, total orders, and average rating — hiding raw ID columns from the front-end team.
 
+Question: Justify why a VIEW is preferred over direct table access here. What are two limitations
+the front-end developer should be aware of when working with this VIEW?
+
+Answer- 
+1. Why a VIEW is Preferred Over Direct Table Access
+Security and Data Abstraction: As mentioned in your scenario, views allow you to hide underlying database complexity and sensitive or raw columns 
+(like primary/foreign IDs) from the front-end team. They only see what they need (restaurant name, total orders, average rating).
+
+Encapsulation of Complex Logic: Calculating total orders and average ratings requires aggregate functions (COUNT, AVG) and GROUP BY clauses. 
+By putting this into a view, the front-end developer doesn’t need to write complex, repetitive SQL queries; they can just treat the view like a regular table (SELECT * FROM top_restaurants;).
+
+Consistency: It ensures that every part of the application (web app, mobile app, admin dashboards) uses the exact same definition and business logic for 
+what constitutes a "top restaurant."
+
+2. Two Limitations of Working with This VIEW
+While views are powerful, a front-end developer working with an analytics view involving aggregations should be aware of these limitations:
+
+Performance Overhead (No Pre-Aggregation / Non-Materialized): In standard MySQL, views are virtual tables. 
+Every time the front-end queries top_restaurants, the database re-runs the underlying query (including all joins, counts, and averages) in real-time. 
+If the food delivery platform has millions of orders, querying this view directly can become slow and resource-heavy.
+
+Read-Only / Non-Updatable: Because this view contains aggregate functions (COUNT, AVG) and likely GROUP BY or JOIN clauses, it is read-only. 
+The front-end developer cannot perform INSERT, UPDATE, or DELETE operations directly on this view to modify restaurant analytics or data.
