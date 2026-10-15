@@ -1,1 +1,9 @@
+SCENARIO-You are developing an order history page. The orders table has order_id, customer_id,
+restaurant_id, and total_amount. The restaurants table has restaurant_id and name.
+The page must show order ID, restaurant name, and amount for every order — including
+any that reference a restaurant no longer in the table.
 
+Question: Compare INNER JOIN and LEFT JOIN for this query. Which would you use and why?
+Describe what each join type does to records that have no match in the other table.
+
+Answer- 
