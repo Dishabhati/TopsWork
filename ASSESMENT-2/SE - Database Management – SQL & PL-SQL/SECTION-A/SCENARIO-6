@@ -1,1 +1,32 @@
+SCENARIO-You are implementing the payment module for a food delivery app. When a customer places an order, the system must deduct the amount from the customer's 
+wallet balance and record the payment simultaneously. During load testing, the wallet deduction completes but the payment record insert occasionally fails, leaving balances
+inconsistent.
 
+Question: Which database mechanism should have prevented this inconsistency? Explain how COMMIT, ROLLBACK, and SAVEPOINT work together 
+to ensure both operations succeed or neither takes effect
+
+Answer-
+The database mechanism that should have prevented this inconsistency is a Transaction (managed via Transaction Control Language, or TCL).
+
+A transaction ensures Atomicity, meaning a series of database operations act as a single, indivisible unit of work—either all operations succeed, 
+or none of them take effect.
+Here is how COMMIT, ROLLBACK, and SAVEPOINT work together to ensure data integrity:
+
+1. COMMIT (Permanent Save)
+What it does: It saves all changes made during the current transaction permanently to the database.
+
+In this scenario: Once both the wallet balance deduction and the payment record insert finish successfully, the system issues a COMMIT. 
+This locks in both changes so they become permanent.
+
+2. ROLLBACK (Undo)
+What it does: It undoes all changes made during the current transaction, reverting the database back to its state before the transaction began.
+
+In this scenario: If the payment record insert fails after the wallet deduction has already happened, the system catches the error and triggers a ROLLBACK. 
+This instantly reverses the wallet deduction, ensuring the customer's balance is safely restored and no inconsistent state occurs.
+
+3. SAVEPOINT (Partial Rollback Marker)
+What it does: It sets a marker within a transaction. It allows you to roll back to a specific point without discarding the entire transaction.
+
+In this scenario: If your payment flow has multiple smaller steps (e.g., Step 1: Deduct wallet, Step 2: Insert payment record, 
+Step 3: Send notification log), you can place a SAVEPOINT after Step 1. If Step 2 fails, you can roll back only to that savepoint instead of aborting the entire transaction stack, 
+or use it to handle granular fallback logic.
