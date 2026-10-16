@@ -1,0 +1,30 @@
+Write a stored procedure to process a customer order with wallet deduction and full transaction control.
+
+1.Create a stored procedure named place_order that accepts customer_id, restaurant_id, and amount as parameters.
+use foodapp_db;
+
+create table customers (
+    customer_id int auto_increment primary key,
+    name varchar(50),
+    wallet_balance decimal(10,2)
+);
+
+create table orders (
+    order_id int auto_increment primary key,
+    customer_id int,
+    restaurant_id int,
+    total_amount decimal(10,2),
+    order_date date,
+    foreign key (customer_id) references customers(customer_id)
+);
+
+2.Deduct the amount from the customer's wallet_balance in a customers table and insert a new record into the orders table.
+
+insert into customers (name, wallet_balance) values
+('DIsha Bhati', 5000.00),
+('Ritu Shah', 200.00);
+
+3.Use a transaction block: if the customer's wallet_balance is insufficient, ROLLBACK everything; otherwise COMMIT.
+
+
+4.Test with a valid order and an order exceeding wallet balance. Screenshot both outcomes from MySQL Workbench.
