@@ -1,0 +1,26 @@
+Mini Project:  Food Delivery Platform — Backend Database
+Objective:
+
+Build the complete backend database for a Food Delivery application, combining DDL, DML,
+JOINs, Views, and PL/SQL into a single integrated .sql script.
+
+Your project must:
+Create three tables: restaurants (restaurant_id, name, city, cuisine_type, created_at),
+menu_items (item_id, restaurant_id, item_name, price, category) with a FOREIGN KEY on
+restaurant_id, and orders (order_id, customer_name, restaurant_id, item_id, quantity,
+total_amount, order_date) with a FOREIGN KEY on restaurant_id — all with appropriate
+PRIMARY KEY and NOT NULL constraints.
+
+Populate with at least 3 restaurants, 4 menu categories, and 15 order records distributed
+across restaurants.
+
+Create a VIEW named restaurant_sales_summary showing restaurant name, total number of
+orders, and total revenue grouped by restaurant.
+
+Write a stored procedure named add_order that accepts customer_name, restaurant_id,
+item_id, and quantity, calculates total_amount from the menu item price, validates the
+restaurant exists (ROLLBACK if not), and inserts the order record.
+
+Write a TRIGGER named after_order_insert that logs a record into an order_audit table
+(order_id, restaurant_id, action='INSERT', log_time=NOW()) immediately after every new order
+is created
