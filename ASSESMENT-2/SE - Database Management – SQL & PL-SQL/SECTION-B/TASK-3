@@ -1,0 +1,62 @@
+Build a two-table schema for restaurants and menu items, write JOIN queries to combine data, and create a summary VIEW.
+
+1.Create two tables: restaurants (restaurant_id, name, city) and menu_items (item_id,
+restaurant_id, item_name, price, category). Link them with a FOREIGN KEY on restaurant_id.
+
+create table restaurants (
+    restaurant_id int auto_increment primary key,
+    name varchar(50),
+    city varchar(30)
+);
+
+create table menu_items (
+    item_id int auto_increment primary key,
+    restaurant_id int,
+    item_name varchar(50),
+    price decimal(10,2),
+    category varchar30),
+    foreign key (restaurant_id) references restaurants(restaurant_id)
+);
+
+2.Insert at least 5 restaurants and 12 menu items; at least one restaurant must have no menu items.
+
+insert into restaurants (name, city) values
+('Spice Garden', 'Ahmedabad'),
+('Pasta Paradise', 'Ahmedabad'),
+('Dragon Wok', 'Bangalore'),
+('Taco Fiesta', 'Mumbai'),
+('Empty Kitchen', 'Ahmedabad');
+
+insert into menu_items (restaurant_id, item_name, price, category) values 
+(1, 'Shahi Paneer', 350.00, 'Main Course'), 
+(1, 'Naan', 40.00, 'Breads'), 
+(1, 'Paneer Tikka', 280.00, 'Starter'), 
+(2, 'White Sauce Pasta', 320.00, 'Italian'), 
+(2, 'Garlic Bread', 150.00, 'Appetizer'), 
+(2, 'Margherita Pizza', 400.00, 'Italian'), 
+(3, 'Hakka Noodles', 220.00, 'Chinese'), 
+(3, 'Manchurian', 200.00, 'Chinese'), 
+(3, 'Spring Rolls', 180.00, 'Starter'), 
+(4, 'Chicken Tacos', 300.00, 'Mexican'), 
+(4, 'Nachos & Salsa', 250.00, 'Appetizer'), 
+(4, 'Churros', 190.00, 'Dessert');
+
+3.Write an INNER JOIN query listing restaurant name, item name, and price for all available items.
+
+select restaurants.name, menu_items.item_name, menu_items.price 
+from restaurants, menu_items 
+where restaurants.restaurant_id = menu_items.restaurant_id;
+
+4.Write a LEFT JOIN query so that restaurants with no items also appear in results, with NULL values in item columns.
+
+select restaurants.name, menu_items.item_name, menu_items.price 
+from restaurants 
+left join menu_items ON restaurants.restaurant_id = menu_items.restaurant_id;
+
+5.Create a VIEW named restaurant_menu_summary showing restaurant name, total number of menu items, and average item price grouped by restaurant
+
+create view restaurant_menu_summary as
+select restaurants.name, count(menu_items.item_id) as total_items, avg(menu_items.price) as avg_item_price 
+from restaurants 
+left join menu_items on restaurants.restaurant_id = menu_items.restaurant_id 
+group by restaurants.name;
