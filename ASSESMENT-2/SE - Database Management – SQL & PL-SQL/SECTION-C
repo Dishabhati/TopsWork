@@ -5,22 +5,112 @@ Build the complete backend database for a Food Delivery application, combining D
 JOINs, Views, and PL/SQL into a single integrated .sql script.
 
 Your project must:
-Create three tables: restaurants (restaurant_id, name, city, cuisine_type, created_at),
+1.Create three tables: restaurants (restaurant_id, name, city, cuisine_type, created_at),
 menu_items (item_id, restaurant_id, item_name, price, category) with a FOREIGN KEY on
 restaurant_id, and orders (order_id, customer_name, restaurant_id, item_id, quantity,
 total_amount, order_date) with a FOREIGN KEY on restaurant_id — all with appropriate
 PRIMARY KEY and NOT NULL constraints.
 
-Populate with at least 3 restaurants, 4 menu categories, and 15 order records distributed
+create table restaurants (
+    restaurant_id int auto_increment primary key,
+    name varchar(50) not null,
+    city varchar(30) not null,
+    cuisine_type varchar(30),
+    created_date date not null
+);
+
+create table menu_items (
+    item_id int auto_increment primary key,
+    restaurant_id int not null,
+    item_name varchar(50) not null,
+    price decimal(10,2) not null,
+    category varchar(30) not null,
+    foreign key (restaurant_id) references restaurants(restaurant_id)
+);
+
+create table orders (
+    order_id int auto_increment primary key,
+    customer_name varchar(50) not null,
+    restaurant_id int not null,
+    item_id int not null,
+    quantity int not null,
+    total_amount decimal(10,2) not null,
+    order_date date not null,
+    foreign key (restaurant_id) references restaurants(restaurant_id),
+    foreign key (item_id) references menu_items(item_id)
+);
+
+
+2.Populate with at least 3 restaurants, 4 menu categories, and 15 order records distributed
 across restaurants.
 
-Create a VIEW named restaurant_sales_summary showing restaurant name, total number of
+insert into restaurants (name, city, cuisine_type, created_date) values
+('spice garden', 'ahmedabad', 'north indian', '2026-01-01'),
+('dragon wok', 'bangalore', 'chinese', '2026-01-02'),
+('pasta paradise', 'ahmedabad', 'italian', '2026-01-03');
+
+insert into menu_items (restaurant_id, item_name, price, category) values
+(1, 'butter chicken', 350.00, 'main course'),
+(1, 'naan', 40.00, 'breads'),
+(2, 'hakka noodles', 220.00, 'chinese'),
+(2, 'manchurian', 200.00, 'chinese'),
+(3, 'white sauce pasta', 320.00, 'italian'),
+(3, 'garlic bread', 150.00, 'appetizer');
+
+insert into orders (customer_name, restaurant_id, item_id, quantity, total_amount, order_date) values
+('aarav', 1, 1, 2, 700.00, '2026-10-01'),
+('priya', 1, 2, 4, 160.00, '2026-10-01'),
+('rohan', 1, 1, 1, 350.00, '2026-10-02'),
+('neha', 1, 2, 3, 120.00, '2026-10-02'),
+('amit', 2, 3, 2, 440.00, '2026-10-03'),
+('sneha', 2, 4, 3, 600.00, '2026-10-03'),
+('rajesh', 2, 3, 1, 220.00, '2026-10-04'),
+('kavita', 2, 4, 2, 400.00, '2026-10-04'),
+('vikram', 3, 5, 2, 640.00, '2026-10-05'),
+('pooja', 3, 6, 3, 450.00, '2026-10-05'),
+('manish', 3, 5, 1, 320.00, '2026-10-06'),
+('deepak', 3, 6, 2, 300.00, '2026-10-06'),
+('ananya', 1, 1, 3, 1050.00, '2026-10-07'),
+('kiran', 2, 3, 5, 1100.00, '2026-10-07'),
+('siddharth', 3, 5, 4, 1280.00, '2026-10-08');
+
+
+3.Create a VIEW named restaurant_sales_summary showing restaurant name, total number of
 orders, and total revenue grouped by restaurant.
 
-Write a stored procedure named add_order that accepts customer_name, restaurant_id,
+create view restaurant_sales_summary as
+select 
+    restaurants.name as restaurant_name,
+    count(orders.order_id) as total_orders,
+    sum(orders.total_amount) as total_revenue
+from 
+    restaurants
+left join 
+    orders on restaurants.restaurant_id = orders.restaurant_id
+group by 
+    restaurants.name;
+
+
+4.Write a stored procedure named add_order that accepts customer_name, restaurant_id,
 item_id, and quantity, calculates total_amount from the menu item price, validates the
 restaurant exists (ROLLBACK if not), and inserts the order record.
 
-Write a TRIGGER named after_order_insert that logs a record into an order_audit table
+select*from restaurant_sales_summary;
+
+
+5.Write a TRIGGER named after_order_insert that logs a record into an order_audit table
 (order_id, restaurant_id, action='INSERT', log_time=NOW()) immediately after every new order
 is created
+
+delimiter $$
+
+create trigger after_order_insert
+after insert on orders
+for each row
+begin
+    -- logs the new order action after insert
+    insert into order_audit (order_id, restaurant_id, action, log_date)
+    values (new.order_id, new.restaurant_id, 'insert', curdate());
+end $$
+
+delimiter ;
