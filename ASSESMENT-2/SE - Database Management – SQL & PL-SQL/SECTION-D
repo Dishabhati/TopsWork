@@ -1,0 +1,76 @@
+Use an AI tool of your choice (ChatGPT, Claude, GitHub Copilot, etc.) to help you write a stored
+procedure that:
+
+-Accepts a restaurant_id and a month number (1–12) as inputs and returns a summary
+showing total orders, total revenue, and average order value for that restaurant in that month.
+
+Ans-"Write a MySQL stored procedure named get_monthly_restaurant_summary that takes p_restaurant_id INT and p_month INT as inputs. 
+It must calculate total orders, total revenue, and average order value for that restaurant in that month using a SELECT query with GROUP BY and aggregate functions. 
+If the restaurant has no orders in that month, it must handle it by returning a meaningful message rather than an empty result."
+-Handles the case where the restaurant has no orders in that month by returning a meaningful
+message rather than an empty result.
+-Uses a SELECT with GROUP BY and aggregate functions to compute the summary values
+correctly.
+-Runs successfully in MySQL Workbench — screenshot output for at least two different
+restaurant_id and month combinations.
+
+STEP 2  ·  TEST & DEBUG  (WITHOUT AI)
+     Then, working without AI, test the stored procedure and find at least one bug, limitation, or
+     improvement in the AI's solution. Fix it yourself.
+
+
+1.The exact prompt(s) you gave the AI tool.
+Ans-"Write a MySQL stored procedure named get_monthly_restaurant_summary that takes p_restaurant_id INT and p_month INT as inputs. 
+It must calculate total orders, total revenue, and average order value for that restaurant in that month using a SELECT query with GROUP BY and aggregate functions. 
+If the restaurant has no orders in that month, it must handle it by returning a meaningful message rather than an empty result."
+
+
+2. The AI's original stored procedure code and your corrected/improved version.
+All 3 items required
+Ans-delimiter $$
+
+create procedure get_monthly_restaurant_summary(in p_restaurant_id int, in p_month int)
+begin
+    select count(order_id) as total_orders, 
+           sum(total_amount) as total_revenue, 
+           avg(total_amount) as avg_order_value
+    from orders
+    where restaurant_id = p_restaurant_id and month(order_date) = p_month;
+end $$
+
+delimiter ;
+
+
+Ans-
+delimiter $$
+
+create procedure get_monthly_restaurant_summary(in p_restaurant_id int, in p_month int)
+begin
+    declare v_order_count int;
+    
+    -- check how many orders exist for that restaurant and month
+    select count(*) into v_order_count 
+    from orders 
+    where restaurant_id = p_restaurant_id and month(order_date) = p_month;
+    
+    -- handle zero orders with a meaningful message
+    if v_order_count = 0 then
+        select 'no orders found for this restaurant in the specified month.' as message;
+    else
+        select count(order_id) as total_orders, 
+               sum(total_amount) as total_revenue, 
+               avg(total_amount) as avg_order_value
+        from orders
+        where restaurant_id = p_restaurant_id and month(order_date) = p_month;
+    end if;
+end $$
+
+delimiter ;
+
+3. A 3–4 line note explaining what you changed and why the AI's version needed
+improvement
+Ans-The AI's version relied strictly on standard aggregate functions, which return a row containing 0 and NULL values when no rows match the criteria, 
+failing the requirement to return a meaningful message. By introducing a count variable and an conditional check, 
+the corrected version successfully catches empty results and returns clear text feedback instead of blank numerical data.
+
+
