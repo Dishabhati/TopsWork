@@ -108,7 +108,7 @@ create trigger after_order_insert
 after insert on orders
 for each row
 begin
-    -- logs the new order action after insert
+    
     insert into order_audit (order_id, restaurant_id, action, log_date)
     values (new.order_id, new.restaurant_id, 'insert', curdate());
 end $$
