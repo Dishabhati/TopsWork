@@ -1,1 +1,49 @@
+1.Create a MySQL table called playlists to store Spotify-style music playlists, with columns: playlist_id (primary key), user_id (foreign key), name (varchar), and created_at (datetime). 
+Write the CREATE TABLE statement.
+Ans.
+create table playlists (
+    playlist_id int auto_increment primary key,
+    user_id int not null,
+    name varchar(100) not null,
+    created_at datetime not null
+);
 
+
+2.Insert three sample records into the playlists table: one for a user with a 'Workout Mix', one with a 'Chill Vibes', and one with a 'Top Hits' playlist. 
+Use realistic data for each field.
+Ans.
+insert into playlists (user_id, name, created_at) values
+(101, 'Workout Mix', '2026-05-10 08:30:00'),
+(102, 'Chill Vibes', '2026-06-15 19:45:00'),
+(103, 'Top Hits', '2026-07-20 12:00:00');
+
+
+3.Write an SQL UPDATE statement to rename the 'Chill Vibes' playlist to 'Evening Chill' for a specific user_id.
+Ans.
+update playlists 
+set name='Evening Chill' 
+where playlist_id=2; 
+
+
+4.Write a DELETE statement to remove a playlist named 'Workout Mix' for a given user_id from the playlists table.<br><br><em><strong>Hint:</strong> 
+Make sure your WHERE clause targets only the intended row.</em>
+Ans.
+delete from playlists 
+where playlist_id=1; 
+
+
+5.Create a stored procedure named GetMonthlyPlaylistCount that takes a user_id and a month (as an integer) as input, and returns the total number of playlists 
+the user created in that month.<br><br><em><strong>Hint:</strong> Use the MONTH() function in your WHERE clause.</em>
+Ans.
+delimiter $$
+create procedure GetMonthlyPlaylistCount(
+    in p_user_id int,
+    in p_month int
+)
+begin
+    select count(*) as total_playlists
+    from playlists
+    where user_id=p_user_id 
+      and month(created_at)=p_month;
+end $$
+delimiter ;
