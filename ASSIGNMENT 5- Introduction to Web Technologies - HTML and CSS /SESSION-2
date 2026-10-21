@@ -1,0 +1,83 @@
+1.Create a new HTML file called foodie-profile.html with the full HTML5 boilerplate structure (<!DOCTYPE html>, <html>, <head>, <body>), 
+and set the title to 'My Foodie Profile'.
+Ans.
+<html>
+<head>
+    <title>My Foodie Profile</title>
+</head>
+<body>
+
+
+2.Inside foodie-profile.html, add headings and paragraphs to introduce yourself as a food lover, including your favorite cuisine and a short story about your best meal.
+Ans.
+<h1>Welcome to My Foodie World</h1>
+    <h2>About Me</h2>
+    <p>Hi, I'm a passionate food lover who thrives on exploring diverse culinary cultures and rich flavors. My absolute favorite cuisine is authentic North Indian, especially rich gravies, tandoori specialties, and freshly baked naan.</p>
+    
+    <h2>My Best Meal Story</h2>
+    <p>My most memorable meal was during a trip when I visited an old roadside dhaba. We ordered butter chicken and garlic naan cooked in a traditional clay tandoor. 
+    The smoky aroma, perfectly balanced spices, and melting butter created an unforgettable taste experience that sparked my lifelong love for great food!</p>
+
+
+3.Add an unordered list of your top 5 favorite dishes (like you'd see on Zomato), and a numbered list of 3 restaurants you want to try next.
+Ans.
+<h2>Top 5 Favorite Dishes</h2>
+    <ul>
+        <li>Paneer Butter Masala</li>
+        <li>Hyderabadi Dum Biryani</li>
+        <li>Pav Bhaji</li>
+        <li>Crispy Masala Dosa</li>
+        <li>Gulab Jamun with Ice Cream</li>
+    </ul>
+
+    <h2>Top 3 Restaurants to Try Next</h2>
+    <ol>
+        <li>Bukhara (New Delhi)</li>
+        <li>Gajalee (Mumbai)</li>
+        <li>Chowman (Kolkata)</li>
+    </ol>
+
+
+4.Insert an image of your favorite dish using the <img> tag, and make the image clickable so it opens the official website of that dish or restaurant in a new 
+tab using an anchor (<a>) tag.<br><br><em><strong>Hint:</strong> Use target="_blank" in your anchor tag.</em>
+Ans.
+<h2>Featured Dish</h2>
+    <p>Click on the image below to explore more about paneer dishes on Zomato:</p>
+    <a href="https://www.zomato.com" target="_blank">
+        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400" alt="Paneer Butter Masala" width="400">
+    </a>
+
+
+5.Create a table that compares 3 food delivery apps (e.g., Zomato, Swiggy, Uber Eats) with columns for App Name, Delivery Charges, and Rating. 
+Fill in sample data for each.
+Ans.
+<h2>Food Delivery Apps Comparison</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Delivery Charges</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Zomato</td>
+                <td>₹35</td>
+                <td>4.5 / 5</td>
+            </tr>
+            <tr>
+                <td>Swiggy</td>
+                <td>₹30</td>
+                <td>4.4 / 5</td>
+            </tr>
+            <tr>
+                <td>EatSure</td>
+                <td>Free (above ₹199)</td>
+                <td>4.2 / 5</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
