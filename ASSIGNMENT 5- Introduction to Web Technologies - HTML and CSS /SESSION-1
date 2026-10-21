@@ -1,17 +1,52 @@
 1.Open Instagram's home page in Chrome, right-click on a post image, and use Inspect Element to find the exact HTML tag and CSS class used for the image container. 
 Write down the tag name and class.
 Ans.
+Because Instagram frequently updates its frontend code and uses dynamically generated, obfuscated class names (often randomized strings via React), the exact class names change often. However, here is how you find them using Chrome DevTools:
+-Open Instagram in Chrome and scroll to a post.
+-Right-click directly on the post's image and select Inspect (or Inspect Element).
+-In the Elements panel, look at the highlighted HTML line.
+-Typically, you will find an <img> tag nested inside a container <div>.
+-Tag Name: <img> (for the image itself) or <div> (for the container wrapper).
+-CSS Class: You will see a class="..." attribute filled with multiple utility or hashed classes (e.g., classes starting with prefixes like _aagw or random alphanumeric strings).
+
 
 
 2.Create a simple HTML file named myprofile.html that displays your name, a short bio, and a profile picture using appropriate HTML tags (h1, p, img). 
 Open it in your browser and view the result.
 Ans.
+To change the background color of your name without editing the source file:
+-Open myprofile.html in Chrome.
+-Right-click on your name (Alex Morgan) and select Inspect.
+-In the Elements panel, ensure the <h1> tag is highlighted.
+-Look at the Styles pane on the right-hand side (or bottom).
+-Click on the white space inside the element.style section at the very top of the Styles pane (which says "/* Add styles here */").
+-Type background-color: lightblue; (or any color of your choice) and press Enter. You will see the background color of your name change instantly in the browser.
+
 
 
 3.Use Chrome DevTools to change the background color of your name (in myprofile.html) to any color you like, live in the browser, without editing the HTML file.
 Ans.
+To change the background color of your name without editing the source file:
+-Open myprofile.html in Chrome.
+-Right-click on your name (Alex Morgan) and select Inspect.
+-In the Elements panel, ensure the <h1> tag is highlighted.
+-Look at the Styles pane on the right-hand side (or bottom).
+-Click on the white space inside the element.style section at the very top of the Styles pane (which says "/* Add styles here */").
+-Type background-color: lightblue; (or any color of your choice) and press Enter. You will see the background color of your name change instantly in the browser.
+
 
 
 4.Draw a diagram or write a list showing the DOM structure (parent-child relationships) of your myprofile.html page. 
 Include at least 3 levels (html > body > your content).
 Ans.
+html
+ ├── head
+ │    └── title
+ └── body
+      ├── h1 (Alex Morgan)
+      ├── p (Bio description)
+      └── img (Profile picture)
+
+Level 1: html (Root)
+Level 2: head, body (Children of html)
+Level 3: h1, p, img (Children of body)
