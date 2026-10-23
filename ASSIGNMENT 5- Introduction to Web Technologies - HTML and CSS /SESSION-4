@@ -1,5 +1,39 @@
 1.Create an HTML file that uses semantic tags to build a simple blog post layout with <header> for the blog title, <nav> for navigation links (Home, Explore, About), 
 <article> for the main post content, and <footer> for copyright information.
+Ans.
+<html>
+<head>
+    <title>My Simple Blog</title>
+</head>
+<body>
+    <header>
+        <h1>Developer Insights</h1>
+        <p>A blog about web development, design, and coding best practices.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article>
+            <h2>Getting Started with Semantic HTML5</h2>
+            <p>Published on <time datetime="2026-10-23">October 23, 2026</time> by <strong>Jane Doe</strong></p>
+            <p>Semantic HTML elements clearly describe their meaning to both the browser and the developer. Tags like <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;footer&gt;</code> empower screen readers and search engines to interpret page hierarchy accurately.</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Developer Insights. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
 
 2.Recreate a Zomato-style restaurant listing card using semantic HTML5 tags: use <article> for each restaurant, <header> for the restaurant name, and <footer> 
 for rating and delivery time.
