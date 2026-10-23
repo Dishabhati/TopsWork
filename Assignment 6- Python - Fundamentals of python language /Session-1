@@ -1,0 +1,16 @@
+1.Install Python (latest version) and VS Code on your computer, then take a screenshot of both the Python installation confirmation and the VS Code welcome screen.
+Ans.
+
+2.Create a new Python file named hello_instagram.py in VS Code and write code to print 'Hello, Instagram World!' to the terminal.
+Ans.
+print('Hello, Instagram World!')
+
+3.Write a Python script called app_use_cases.py that prints three real-life apps you use daily and, for each, prints one way Python could be used in their backend or data analysis.
+Ans.
+
+
+4.Modify your hello_instagram.py script to print the Python version currently running your script.<br><br><em><strong>Hint:</strong> Use the sys module and sys.version.</em>
+Ans.
+
+5.Explain the difference between how Python executes code versus how C or Java executes code, using your own words and a simple example for each.
+Ans.
