@@ -20,7 +20,7 @@ Ans.
 
     <h1>My Foodie Profile</h1>
     
-    <h2>Welcome to My Culinary Journey</h2>
+    <h2>Welcome to My Journey</h2>
     <p>Hello! I am an absolute food lover who finds pure joy in exploring diverse flavors, street foods, and fine dining experiences from around the world.</p>
 
     <h3>My Favorite Cuisine</h3>
@@ -38,8 +38,8 @@ Ans.
         <li>Wood-fired Margherita Pizza</li>
         <li>Handmade Truffle Pasta</li>
         <li>Hyderabadi Dum Biryani</li>
-        <li>Butter Chicken with Garlic Naan</li>
-        <li>Rich Chocolate Lava Cake</li>
+        <li>Butter Panner with Garlic Naan</li>
+        <li>Chocolate Lava Cake</li>
     </ul>
 
     <h3>3 Restaurants I Want to Try Next</h3>
@@ -76,17 +76,17 @@ Ans.
         <tbody>
             <tr>
                 <td>Zomato</td>
-                <td>$2.99 (Free with Gold membership)</td>
+                <td>400rs (Free with Gold membership)</td>
                 <td>4.5 / 5</td>
             </tr>
             <tr>
                 <td>Swiggy</td>
-                <td>$1.99 (Free with Swiggy One)</td>
+                <td>350rs (Free with Swiggy One)</td>
                 <td>4.4 / 5</td>
             </tr>
             <tr>
                 <td>Uber Eats</td>
-                <td>$3.49 standard delivery</td>
+                <td>300rs standard delivery</td>
                 <td>4.3 / 5</td>
             </tr>
         </tbody>
