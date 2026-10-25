@@ -1,0 +1,96 @@
+1.Create a new HTML file called foodie-profile.html with the full HTML5 boilerplate structure (<!DOCTYPE html>, <html>, <head>, <body>), and set the title to 
+'My Foodie Profile'.
+2.Inside foodie-profile.html, add headings and paragraphs to introduce yourself as a food lover, including your favorite cuisine and a short story about your 
+best meal.
+Ans.
+
+<html>
+<head>
+    <title>My Foodie Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; line-height: 1.6; }
+        h1, h2, h3 { color: #cb202d; }
+        table { width: 100%; max-width: 600px; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        img { border-radius: 8px; margin-top: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+    <h1>My Foodie Profile</h1>
+    
+    <h2>Welcome to My Culinary Journey</h2>
+    <p>Hello! I am an absolute food lover who finds pure joy in exploring diverse flavors, street foods, and fine dining experiences from around the world.</p>
+
+    <h3>My Favorite Cuisine</h3>
+    <p>My absolute favorite cuisine is Italian because of its wonderful balance of fresh herbs, rich cheeses, and comforting, handcrafted pasta dishes.</p>
+
+    <h3>My Best Meal Story</h3>
+    <p>During a trip to Italy a couple of years ago, I stumbled upon a tiny, family-run trattoria in Florence. I ordered a plate of handmade truffle pasta that completely blew my mind. The flavors were so rich and comforting that it remains the best meal I have ever had to this day!</p>
+    <hr>
+
+
+3.Add an unordered list of your top 5 favorite dishes (like you'd see on Zomato), and a numbered list of 3 restaurants you want to try next.
+Ans.
+    <h3>Top 5 Favorite Dishes</h3>
+    <ul>
+        <li>Wood-fired Margherita Pizza</li>
+        <li>Handmade Truffle Pasta</li>
+        <li>Hyderabadi Dum Biryani</li>
+        <li>Butter Chicken with Garlic Naan</li>
+        <li>Rich Chocolate Lava Cake</li>
+    </ul>
+
+    <h3>3 Restaurants I Want to Try Next</h3>
+    <ol>
+        <li>Bukhara (New Delhi)</li>
+        <li>Gaggan Anand (Bangkok)</li>
+        <li>Osteria Francescana (Modena)</li>
+    </ol>
+    <hr>
+
+4.Insert an image of your favorite dish using the <img> tag, and make the image clickable so it opens the official website of that dish or restaurant 
+in a new tab using an anchor (<a>) tag.<br><br><em><strong>Hint:</strong> Use target="_blank" in your anchor tag.</em>
+Ans.
+    <h3>Favorite Dish Snapshot</h3>
+    <p>Click the image below to visit a food guide website:</p>
+    <a href="https://www.zomato.com" target="_blank">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Delicious Margherita Pizza" width="350">
+    </a>
+
+    <hr>
+
+5.Create a table that compares 3 food delivery apps (e.g., Zomato, Swiggy, Uber Eats) with columns for App Name, Delivery Charges, and Rating. 
+Fill in sample data for each.
+Ans.
+<h3>Food Delivery Apps Comparison</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Delivery Charges</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Zomato</td>
+                <td>$2.99 (Free with Gold membership)</td>
+                <td>4.5 / 5</td>
+            </tr>
+            <tr>
+                <td>Swiggy</td>
+                <td>$1.99 (Free with Swiggy One)</td>
+                <td>4.4 / 5</td>
+            </tr>
+            <tr>
+                <td>Uber Eats</td>
+                <td>$3.49 standard delivery</td>
+                <td>4.3 / 5</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
