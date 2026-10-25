@@ -1,16 +1,56 @@
 1.Install Python (latest version) and VS Code on your computer, then take a screenshot of both the Python installation confirmation and the VS Code welcome screen.
 Ans.
+<html>
+<head>
+    <title>My First Web Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is my first HTML page.</p>
+</body>
+</html>
+
 
 2.Create a new Python file named hello_instagram.py in VS Code and write code to print 'Hello, Instagram World!' to the terminal.
 Ans.
 print('Hello, Instagram World!')
 
+
 3.Write a Python script called app_use_cases.py that prints three real-life apps you use daily and, for each, prints one way Python could be used in their backend or data analysis.
 Ans.
+print("1. Instagram")
+print("Backend/Data Use Case: Instagram runs one of the world's largest deployments of the Django web framework (written in Python) to power 
+its backend infrastructure and handle massive data feeds and user interactions.\n")
 
+print("2. Spotify")
+print("Backend/Data Use Case: Spotify relies heavily on Python for backend services and data analysis, particularly for powering their 
+machine learning recommendation algorithms like 'Discover Weekly'.\n")
+
+print("3. Netflix")
+print("Backend/Data Use Case: Netflix uses Python across its full technology stack, from backend microservices and security automation to 
+heavy data analysis and machine learning for personalized content recommendations.")
 
 4.Modify your hello_instagram.py script to print the Python version currently running your script.<br><br><em><strong>Hint:</strong> Use the sys module and sys.version.</em>
 Ans.
+import sys
+
+print('Hello, Instagram World!')
+print('Current Python Version:', sys.version)
 
 5.Explain the difference between how Python executes code versus how C or Java executes code, using your own words and a simple example for each.
 Ans.
+1. Python (Interpreted Execution)
+Explanation: Python is an interpreted language. When you run a Python file, there is no separate manual building or compilation step. 
+             The Python interpreter reads your human-readable code and executes it line-by-line right as the program runs.
+Example: You write print("Hello") in a file called test.py and immediately type python test.py in your terminal. 
+         Python translates and prints it instantly without creating any middle file.
+
+2. C (Directly Compiled Execution)
+Explanation: C is a strictly compiled language. Before you can run a C program, a tool called a compiler must translate your entire source code directly 
+             into native machine code (binary zeros and ones) tailored specifically for your computer's processor.
+Example: You write code in main.c, use a compiler to generate an executable file named main.exe, and then run that final .exe file.
+
+3. Java (Hybrid / Bytecode Execution)
+Explanation: Java uses a mix of both. First, you compile your Java code into an intermediate universal format called bytecode. 
+             Then, the Java Virtual Machine (JVM) reads and executes that bytecode on your computer.
+Example: You write code in Main.java, compile it into Main.class (bytecode), and then run it using the JVM command java Main.
