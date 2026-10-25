@@ -30,12 +30,14 @@ print("3. Netflix")
 print("Backend/Data Use Case: Netflix uses Python across its full technology stack, from backend microservices and security automation to 
 heavy data analysis and machine learning for personalized content recommendations.")
 
+
 4.Modify your hello_instagram.py script to print the Python version currently running your script.<br><br><em><strong>Hint:</strong> Use the sys module and sys.version.</em>
 Ans.
 import sys
 
 print('Hello, Instagram World!')
 print('Current Python Version:', sys.version)
+
 
 5.Explain the difference between how Python executes code versus how C or Java executes code, using your own words and a simple example for each.
 Ans.
