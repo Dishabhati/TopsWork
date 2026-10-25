@@ -1,0 +1,144 @@
+1.Create an HTML file for a Flipkart-style product card and apply inline CSS to set a unique background color and font size for the product title only.
+Ans.
+<div class="product-card">
+  <img src="headphones.jpg" alt="Wireless Headphones">
+  
+  <h3 style="background-color: #fef08a; font-size: 19px; color: #854d0e; padding: 6px;">
+    Sony WH-1000XM5 Headphones
+  </h3>
+
+  <p class="price">₹29,990</p>
+  <button>Add to Cart</button>
+</div>
+
+
+2.Build a Myntra-like offer banner using internal CSS (inside a <style> tag) to set a custom font family, text color, and background color for the banner text.
+Ans.
+<html>
+<head>
+  <title>Myntra Offer Banner</title>
+  <style>
+    .myntra-offer-banner {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ff3f6c;
+      color: #ffffff;
+      padding: 24px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .myntra-offer-banner h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="myntra-offer-banner">
+    <h2>BIG SAVINGS DAYS! FLAT 50% OFF</h2>
+  </div>
+</body>
+</html>
+
+
+3.Create a separate CSS file named styles.css and link it to your HTML file. Use external CSS to style all <button> elements with a Zomato-inspired color, 
+rounded corners, and a hover effect that changes the background color.
+Ans.
+<html>
+<head>
+  <title>Zomato Button Example</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button>Order Online</button>
+</body>
+</html>
+
+button {
+  background-color: #cb202d; 
+  color: #6c2626;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e23744;
+}
+
+4.Write CSS selectors to style all elements with the class 'playlist-item' (for a Spotify playlist page) to have a dark background and white text. 
+Then, add a rule to highlight the currently playing song with a different color using a unique id selector.
+Ans.
+<html>
+<head>
+  <style>
+    .playlist-item {
+      background-color: #181818; 
+      color: #ffffff;          
+      padding: 12px 18px;
+      margin-bottom: 6px;
+      border-radius: 6px;
+    }
+
+    #currently-playing {
+      background-color: #1db954; 
+      color: #000000;          
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="playlist-item">1. Blinding Lights - The Weeknd</div>
+  <div class="playlist-item" id="currently-playing">2. Starboy - The Weeknd</div>
+  <div class="playlist-item">3. As It Was - Harry Styles</div>
+</body>
+</html>
+
+
+5.Implement a simple light/dark mode switch for a BookMyShow movie detail page using internal CSS and a toggle button. When the button is clicked, 
+switch between light and dark color themes for the page.<br><br><em><strong>Hint:</strong> Use JavaScript to add or remove a 'dark-mode' class on the <body> 
+and define the color themes in CSS.</em>
+Ans.
+<html>
+<head>
+  <title>BookMyShow Theme Switcher</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #222222;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .theme-btn {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 20px;
+      border: none;
+      background-color: #f84464;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>BookMyShow: Movie Details</h1>
+  <button class="theme-btn" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
