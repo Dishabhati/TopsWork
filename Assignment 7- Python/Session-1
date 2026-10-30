@@ -1,14 +1,6 @@
 1.Install Python (latest version) and VS Code on your computer, then take a screenshot of both the Python installation confirmation and the VS Code welcome screen.
 Ans.
-<html>
-<head>
-    <title>My First Web Page</title>
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <p>This is my first HTML page.</p>
-</body>
-</html>
+
 
 
 2.Create a new Python file named hello_instagram.py in VS Code and write code to print 'Hello, Instagram World!' to the terminal.
