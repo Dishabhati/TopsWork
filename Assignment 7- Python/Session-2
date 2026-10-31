@@ -1,0 +1,18 @@
+1.<p>Write 'gym_member.py' that creates at least 6 variables for one fictional gym member, including a str, an int, a float and a bool value (for example name, age, 
+monthly_fee, plan_months, city, is_active), and prints each as a label followed by its value. Constraint: Assign all values in the code; do not use `input()`.</p>
+Ans.
+
+2.<p>Extend 'gym_member.py' to calculate `total_fee` (monthly fee times plan months), add a one-time `registration_fee` of ₹500, and store the result in 
+`amount_payable`, then print all three. Use a monthly fee of ₹1200 and a 6-month plan, so the amount payable is ₹7700. Hint: Write numbers without commas in code, 
+for example 1200.</p>
+Ans.
+
+3.<p>Create 'fix_names.py' by typing these three lines exactly: `member name = "Kiran"`, `2nd_fee = 1500` and `class = "Gold"`. Python will not run them. 
+Rename each variable in snake_case so that it follows Python's naming rules, then print all three values. Hint: A name cannot contain spaces, cannot start with a 
+digit and cannot be a Python keyword.</p>
+Ans.
+
+4.<p>Write 'type_id_check.py' that stores a fee (int), a rate (float), a gym name (str), an open flag (bool), a list of 3 workouts and a dictionary with a trainer's 
+name and age, then prints the `type()` of each with a label. Then set `fee_copy = fee`, print `id(fee)` and `id(fee_copy)`, change `fee_copy` to a new value and 
+print both ids again.</p>
+Ans.
